@@ -80,8 +80,39 @@ export function FloatingElements() {
   if (!mounted) return null
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
-      {/* Elegant geometric shapes */}
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {/* Grid Background - Direct implementation with subtle opacity */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,198,150,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(0,198,150,0.07)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+      </div>
+
+      {/* Floating particles from old design - with moderate opacity */}
+      {[...Array(30)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full bg-primary/25"
+          style={{
+            width: Math.random() * 15 + 5,
+            height: Math.random() * 15 + 5,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+          }}
+          animate={{
+            y: [0, -50, 0],
+            x: [0, Math.random() * 30 - 15, 0],
+            opacity: [0.15, 0.6, 0.15],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: Math.random() * 8 + 5,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "easeInOut",
+            delay: Math.random() * 5,
+          }}
+        />
+      ))}
+
+      {/* Elegant geometric shapes - Keeping all existing shapes */}
       <ElegantShape
         delay={0.3}
         width={600}
@@ -127,10 +158,9 @@ export function FloatingElements() {
         className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
       />
 
-      {/* Grid lines */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,198,150,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,198,150,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+      {/* Additional subtle grid lines for depth - removed to avoid duplication */}
 
-      {/* Gradient overlay */}
+      {/* Gradient overlay - Keeping existing overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-950/80 via-transparent to-gray-950/80 pointer-events-none"></div>
     </div>
   )

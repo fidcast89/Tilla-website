@@ -71,7 +71,7 @@ function ElegantShape({
 
 export function ElegantShapesBackground() {
   return (
-    <div className="absolute inset-0 overflow-hidden">
+    <div className="absolute inset-0 overflow-hidden -z-10">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.05] via-transparent to-blue-500/[0.05] blur-3xl" />
 
       <ElegantShape

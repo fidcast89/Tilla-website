@@ -34,8 +34,8 @@ export default function Home() {
 
       {/* Hero Section - With geometric background */}
       <section className="relative overflow-hidden bg-gradient-to-b from-gray-900 to-gray-950 pt-20 pb-32">
-        <FloatingElements />
         <ElegantShapesBackground />
+        <FloatingElements />
 
         <div className="container relative mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col-reverse items-center justify-between gap-12 md:flex-row md:items-center lg:gap-16 xl:gap-24">
@@ -370,10 +370,19 @@ export default function Home() {
                 Join our growing community of smart retailers who are using AI to work smarter, not harder.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button size="lg" className="rounded-full bg-white text-primary hover:bg-white/90">
+                <Button
+                  size="lg"
+                  className="rounded-full bg-white text-primary hover:bg-white/90"
+                  onClick={() => window.location.href = 'mailto:ihustlebiz24@gmail.com?subject=iHustle%20Inquiry'}
+                >
                   Contact Us <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <Button size="lg" variant="outline" className="rounded-full border-white text-white hover:bg-white/10">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full border-white text-white hover:bg-white/10"
+                  onClick={() => window.location.href = 'mailto:ihustlebiz24@gmail.com?subject=iHustle%20Demo%20Request'}
+                >
                   See a demo
                 </Button>
               </div>
@@ -495,21 +504,27 @@ export default function Home() {
                   Get in touch to see how AI can transform your Hustle.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <Button size="lg" className="rounded-full bg-white text-primary hover:bg-white/90">
+                  <Button
+                    size="lg"
+                    className="rounded-full bg-white text-primary hover:bg-white/90"
+                    onClick={() => window.location.href = 'mailto:ihustlebiz24@gmail.com?subject=iHustle%20Inquiry'}
+                  >
                     Contact Us <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                   <Button
                     size="lg"
                     variant="outline"
                     className="rounded-full border-white text-white hover:bg-white/10"
+                    onClick={() => window.location.href = 'mailto:ihustlebiz24@gmail.com?subject=iHustle%20Demo%20Request'}
                   >
                     Schedule a demo
                   </Button>
                   <Button
                     size="lg"
                     className="rounded-full bg-black text-white hover:bg-black/90"
+                    onClick={() => window.location.href = 'https://forms.gle/BSTDaS3WKft7vsjB6'}
                   >
-                    Apply for Beta
+                    Get Early Access
                   </Button>
                 </div>
                 <p className="mt-6 text-sm text-white/70">

@@ -18,8 +18,8 @@ export default function FeaturesPage() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-b from-gray-900 to-gray-950 pt-24 pb-16">
-        <FloatingElements />
         <ElegantShapesBackground />
+        <FloatingElements />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center relative z-10">

@@ -9,44 +9,40 @@ import { FadeIn } from "@/components/fade-in"
 // Hero content options that will rotate
 const heroContents = [
   {
+    title: "One App, Your <span>Complete</span> Business Solution",
+    description: "Stop juggling multiple apps and paper records. iHustle brings everything together - sales, inventory, customers, analytics - in one simple, powerful mobile app."
+  },
+  {
     title: "Your <span>Hustle</span>, supercharged with AI",
     description: "We've built the mobile business tool we always wanted - mobile-first, smart, simple, and actually fun to use. Let AI handle the boring stuff while you focus on growing your Hustle."
-  },
-  {
-    title: "Your <span>Business</span> Simplified, Anywhere You Go",
-    description: "iHustle turns your smartphone into a powerful business tool. No complicated systems, no tech headaches - just a simple app that helps you sell more and stress less."
-  },
-  {
-    title: "Grow Your Business with <span>AI-Powered</span> Tools",
-    description: "iHustle combines the power of artificial intelligence with simple, intuitive design to help entrepreneurs sell more, manage better, and grow faster."
-  },
-  {
-    title: "Save <span>Hours</span> Every Day with Smart Business Tools",
-    description: "Stop wasting time on manual inventory, sales tracking, and customer management. iHustle automates the boring stuff so you can focus on what matters - growing your business."
-  },
-  {
-    title: "Your Business Assistant, <span>Online or Offline</span>",
-    description: "iHustle works even when your internet doesn't. Keep selling, tracking inventory, and managing customers anywhere - everything syncs when you're back online."
-  },
-  {
-    title: "Your Entire <span>Business</span> in Your Pocket",
-    description: "iHustle transforms your smartphone into a complete business management system. Sell, track, analyze, and grow - all from the palm of your hand."
-  },
-  {
-    title: "<span>AI</span> That Actually Helps Your Business",
-    description: "No more guesswork. iHustle's AI analyzes your sales, predicts trends, and gives you practical advice to boost profits and streamline operations."
   },
   {
     title: "Small Business, <span>Big</span> Possibilities",
     description: "iHustle gives small businesses the same powerful tools that big companies use, at a fraction of the cost. Level the playing field with AI-powered business management."
   },
   {
+    title: "Your Entire <span>Business</span> in Your Pocket",
+    description: "iHustle transforms your smartphone into a complete business management system. Sell, track, analyze, and grow - all from the palm of your hand."
+  },
+  {
+    title: "Your Business Assistant, <span>Online or Offline</span>",
+    description: "iHustle works even when your internet doesn't. Keep selling, tracking inventory, and managing customers anywhere - everything syncs when you're back online."
+  },
+  {
     title: "Business Management Made <span>Simple</span>",
     description: "No technical skills required. If you can use WhatsApp, you can use iHustle to manage your entire business, from sales to inventory to customer relationships."
   },
   {
-    title: "One App, Your <span>Complete</span> Business Solution",
-    description: "Stop juggling multiple apps and paper records. iHustle brings everything together - sales, inventory, customers, analytics - in one simple, powerful mobile app."
+    title: "<span>AI</span> That Actually Helps Your Business",
+    description: "No more guesswork. iHustle's AI analyzes your sales, predicts trends, and gives you practical advice to boost profits and streamline operations."
+  },
+  {
+    title: "Your <span>Hustle</span> Simplified, Anywhere You Go",
+    description: "iHustle turns your smartphone into a powerful business tool. No complicated systems, no tech headaches - just a simple app that helps you sell more and stress less."
+  },
+  {
+    title: "Save <span>Hours</span> Every Day with Smart Tools",
+    description: "Stop wasting time on manual inventory, sales tracking, and customer management. iHustle automates the boring stuff so you can focus on what matters - growing your business."
   }
 ]
 
@@ -97,11 +93,20 @@ export function DynamicHero() {
 
           <FadeIn delay={0.4}>
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="rounded-full bg-primary text-white hover:bg-primary/90">
+              <Button
+                size="lg"
+                className="rounded-full bg-primary text-white hover:bg-primary/90"
+                onClick={() => window.location.href = 'mailto:ihustlebiz24@gmail.com?subject=iHustle%20Inquiry'}
+              >
                 Contact Us <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full border-gray-700 text-gray-300 hover:bg-gray-800 hover:text-white">
-                Apply for Beta
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-full border-gray-700 text-gray-300 hover:bg-gray-800 hover:text-white"
+                onClick={() => window.location.href = 'https://forms.gle/BSTDaS3WKft7vsjB6'}
+              >
+                Get Early Access
               </Button>
             </div>
           </FadeIn>
