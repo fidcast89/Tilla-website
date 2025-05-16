@@ -4,9 +4,12 @@ import { Button } from "@/components/ui/button"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { FadeIn } from "@/components/fade-in"
-import { FeatureMockup } from "@/components/feature-mockup"
 import { FloatingElements } from "@/components/floating-elements"
 import { ElegantShapesBackground } from "@/components/elegant-shapes"
+import { AIProductCreationMockup } from "@/components/feature-mockups/ai-product-creation-mockup"
+import { SmartSalesMockup } from "@/components/feature-mockups/smart-sales-mockup"
+import { CustomerCreditMockup } from "@/components/feature-mockups/customer-credit-mockup"
+import { BusinessInsightsMockup } from "@/components/feature-mockups/business-insights-mockup"
 
 export default function FeaturesPage() {
   return (
@@ -25,7 +28,7 @@ export default function FeaturesPage() {
                 Features that make your <span className="text-primary">Hustle</span> smarter
               </h1>
               <p className="mb-8 text-lg text-gray-300">
-                We've packed iHustle POS with powerful features that help small businesses work smarter, not harder.
+                We've packed iHustle with powerful features that help small businesses work smarter, not harder.
                 Here's how we're different.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
@@ -84,11 +87,9 @@ export default function FeaturesPage() {
             <FadeIn delay={0.2}>
               <div className="relative">
                 <div className="absolute -top-8 -left-8 h-64 w-64 rounded-full bg-primary/10 blur-3xl"></div>
-                <FeatureMockup
-                  imageSrc="/placeholder.svg?height=600&width=400"
-                  alt="AI Product Creation"
-                  className="relative z-10 mx-auto rounded-xl shadow-2xl"
-                />
+                <div className="relative z-10 mx-auto rounded-xl shadow-2xl">
+                  <AIProductCreationMockup />
+                </div>
               </div>
             </FadeIn>
           </div>
@@ -97,24 +98,22 @@ export default function FeaturesPage() {
           <div className="mb-32 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <FadeIn className="order-2 lg:order-1">
               <div className="relative">
-                <div className="absolute -bottom-8 -right-8 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl"></div>
-                <FeatureMockup
-                  imageSrc="/placeholder.svg?height=600&width=400"
-                  alt="Smart Sales"
-                  className="relative z-10 mx-auto rounded-xl shadow-2xl"
-                />
+                <div className="absolute -bottom-8 -right-8 h-64 w-64 rounded-full bg-primary/10 blur-3xl"></div>
+                <div className="relative z-10 mx-auto rounded-xl shadow-2xl">
+                  <SmartSalesMockup />
+                </div>
               </div>
             </FadeIn>
             <FadeIn delay={0.2} className="order-1 lg:order-2">
               <div>
-                <span className="mb-4 inline-block rounded-full bg-blue-500/20 px-4 py-2 text-sm font-medium text-blue-400">
+                <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
                   Smart Sales
                 </span>
                 <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
                   Sell anywhere, anytime, even offline
                 </h2>
                 <p className="mb-6 text-lg text-gray-300">
-                  Our mobile-first POS works even when your internet doesn't. Sell in your store, at markets, or on the
+                  Our mobile-first app works even when your internet doesn't. Sell in your store, at markets, or on the
                   go, and everything syncs automatically when you're back online.
                 </p>
                 <ul className="mb-8 space-y-4">
@@ -126,12 +125,12 @@ export default function FeaturesPage() {
                     "Digital receipts via SMS or email",
                   ].map((feature, index) => (
                     <li key={index} className="flex items-start">
-                      <Check className="mr-3 h-6 w-6 flex-shrink-0 text-blue-400" />
+                      <Check className="mr-3 h-6 w-6 flex-shrink-0 text-primary" />
                       <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
-                <Button className="rounded-full bg-blue-500 text-white hover:bg-blue-600">
+                <Button className="rounded-full bg-primary text-white hover:bg-primary/90">
                   Learn more <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
@@ -142,7 +141,7 @@ export default function FeaturesPage() {
           <div className="mb-32 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <FadeIn>
               <div>
-                <span className="mb-4 inline-block rounded-full bg-purple-500/20 px-4 py-2 text-sm font-medium text-purple-400">
+                <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
                   Customer Relationships
                 </span>
                 <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -161,24 +160,22 @@ export default function FeaturesPage() {
                     "Loyalty program integration",
                   ].map((feature, index) => (
                     <li key={index} className="flex items-start">
-                      <Check className="mr-3 h-6 w-6 flex-shrink-0 text-purple-400" />
+                      <Check className="mr-3 h-6 w-6 flex-shrink-0 text-primary" />
                       <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
-                <Button className="rounded-full bg-purple-500 text-white hover:bg-purple-600">
+                <Button className="rounded-full bg-primary text-white hover:bg-primary/90">
                   Learn more <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             </FadeIn>
             <FadeIn delay={0.2}>
               <div className="relative">
-                <div className="absolute -top-8 -right-8 h-64 w-64 rounded-full bg-purple-500/10 blur-3xl"></div>
-                <FeatureMockup
-                  imageSrc="/placeholder.svg?height=600&width=400"
-                  alt="Customer Credit"
-                  className="relative z-10 mx-auto rounded-xl shadow-2xl"
-                />
+                <div className="absolute -top-8 -right-8 h-64 w-64 rounded-full bg-primary/10 blur-3xl"></div>
+                <div className="relative z-10 mx-auto rounded-xl shadow-2xl">
+                  <CustomerCreditMockup />
+                </div>
               </div>
             </FadeIn>
           </div>
@@ -187,17 +184,15 @@ export default function FeaturesPage() {
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <FadeIn className="order-2 lg:order-1">
               <div className="relative">
-                <div className="absolute -bottom-8 -left-8 h-64 w-64 rounded-full bg-green-500/10 blur-3xl"></div>
-                <FeatureMockup
-                  imageSrc="/placeholder.svg?height=600&width=400"
-                  alt="Business Insights"
-                  className="relative z-10 mx-auto rounded-xl shadow-2xl"
-                />
+                <div className="absolute -bottom-8 -left-8 h-64 w-64 rounded-full bg-primary/10 blur-3xl"></div>
+                <div className="relative z-10 mx-auto rounded-xl shadow-2xl">
+                  <BusinessInsightsMockup />
+                </div>
               </div>
             </FadeIn>
             <FadeIn delay={0.2} className="order-1 lg:order-2">
               <div>
-                <span className="mb-4 inline-block rounded-full bg-green-500/20 px-4 py-2 text-sm font-medium text-green-400">
+                <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
                   Business Insights
                 </span>
                 <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -216,12 +211,12 @@ export default function FeaturesPage() {
                     "Customizable reports and dashboards",
                   ].map((feature, index) => (
                     <li key={index} className="flex items-start">
-                      <Check className="mr-3 h-6 w-6 flex-shrink-0 text-green-400" />
+                      <Check className="mr-3 h-6 w-6 flex-shrink-0 text-primary" />
                       <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
-                <Button className="rounded-full bg-green-500 text-white hover:bg-green-600">
+                <Button className="rounded-full bg-primary text-white hover:bg-primary/90">
                   Learn more <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
@@ -242,7 +237,7 @@ export default function FeaturesPage() {
                 Everything you need to run your business
               </h2>
               <p className="text-lg text-gray-300">
-                iHustle POS is packed with features designed specifically for small businesses like yours.
+                iHustle is packed with features designed specifically for small businesses like yours.
               </p>
             </FadeIn>
           </div>
@@ -307,7 +302,7 @@ export default function FeaturesPage() {
                 Ready to transform your business?
               </h2>
               <p className="mb-8 text-lg text-white/80">
-                Join thousands of small businesses using iHustle POS to work smarter, not harder.
+                Join thousands of small businesses using iHustle to work smarter, not harder.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button size="lg" className="rounded-full bg-white text-primary hover:bg-white/90">
@@ -315,6 +310,9 @@ export default function FeaturesPage() {
                 </Button>
                 <Button size="lg" variant="outline" className="rounded-full border-white text-white hover:bg-white/10">
                   Schedule a demo
+                </Button>
+                <Button size="lg" className="rounded-full bg-black text-white hover:bg-black/90">
+                  Apply for Beta
                 </Button>
               </div>
             </FadeIn>

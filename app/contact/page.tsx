@@ -60,8 +60,8 @@ export default function ContactPage() {
                     <div className="ml-4">
                       <h3 className="text-lg font-medium text-white">Email</h3>
                       <p className="mt-1 text-gray-300">
-                        <a href="mailto:hello@ihustlebiz.com" className="hover:text-primary">
-                          hello@ihustlebiz.com
+                        <a href="mailto:ihustlebiz24@gmail.com" className="hover:text-primary">
+                          ihustlebiz24@gmail.com
                         </a>
                       </p>
                     </div>
@@ -172,7 +172,7 @@ export default function ContactPage() {
                       id="phone"
                       type="tel"
                       className="mt-1 border-gray-700 bg-gray-800 text-white placeholder-gray-400 focus:border-primary"
-                      placeholder="+254 720 024 670"
+                      placeholder="+254700123456"
                     />
                   </div>
 

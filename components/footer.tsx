@@ -9,11 +9,11 @@ export function Footer() {
           <div>
             <Link href="/" className="flex items-center">
               <span className="text-xl font-bold text-white">
-                iHustle<span className="text-primary">POS</span>
+                <span className="text-primary">i</span>Hustle
               </span>
             </Link>
             <p className="mt-4 text-sm text-gray-400">
-              The AI-powered POS system built for small businesses that want to work smarter, not harder.
+              The AI-powered business tool built for small businesses that want to work smarter, not harder.
             </p>
             <div className="mt-6 flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white">
@@ -73,8 +73,13 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-sm hover:text-white">
-                  Blog
+                <Link href="/terms" className="text-sm hover:text-white">
+                  Terms & Conditions
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy" className="text-sm hover:text-white">
+                  Privacy Policy
                 </Link>
               </li>
               <li>
@@ -112,7 +117,7 @@ export function Footer() {
         </div>
         <div className="mt-12 border-t border-gray-800 pt-8">
           <p className="text-center text-xs text-gray-400">
-            &copy; {new Date().getFullYear()} iHustle POS. All rights reserved.
+            &copy; {new Date().getFullYear()} iHustle. All rights reserved.
           </p>
           <div className="mt-4 flex justify-center space-x-6">
             <Link href="/terms" className="text-xs text-gray-400 hover:text-white">

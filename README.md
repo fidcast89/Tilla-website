@@ -1,3 +1,3 @@
-# iHustle POS Website
+# iHustle Website
 
-A modern, responsive website for iHustle POS - an AI-powered point of sale system designed for small businesses.
+A modern, responsive website for iHustle - an AI-powered business tool designed for small businesses.

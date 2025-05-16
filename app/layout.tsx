@@ -7,9 +7,9 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "iHustle POS - AI-Powered Point of Sale for Small Businesses",
+  title: "iHustle - AI-Powered Business Tool for Small Businesses",
   description:
-    "iHustle POS combines AI technology with intuitive design to streamline your operations, boost sales, and provide actionable insights for your small business.",
+    "iHustle combines AI technology with intuitive design to streamline your operations, boost sales, and provide actionable insights for your small business.",
   metadataBase: new URL("https://www.ihustlebiz.com"),
   generator: "v0.dev",
 }

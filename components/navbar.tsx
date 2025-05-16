@@ -32,7 +32,7 @@ export function Navbar() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <span className="text-xl font-bold text-white">
-                iHustle<span className="text-primary">POS</span>
+                <span className="text-primary">i</span>Hustle
               </span>
             </Link>
           </div>
@@ -43,7 +43,6 @@ export function Navbar() {
                 { name: "Features", href: "/features" },
                 { name: "Pricing", href: "/pricing" },
                 { name: "Contact", href: "/contact" },
-                { name: "Blog", href: "/blog" },
               ].map((item) => (
                 <li key={item.name}>
                   <Link href={item.href} className="text-sm text-gray-300 transition-colors hover:text-white">
@@ -84,7 +83,6 @@ export function Navbar() {
                 { name: "Features", href: "/features" },
                 { name: "Pricing", href: "/pricing" },
                 { name: "Contact", href: "/contact" },
-                { name: "Blog", href: "/blog" },
               ].map((item) => (
                 <li key={item.name}>
                   <Link

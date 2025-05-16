@@ -16,93 +16,93 @@ export default function PricingPage() {
   const pricingPlans = {
     monthly: [
       {
-        title: "Starter",
-        price: "$29",
-        description: "Perfect for new and small retailers just getting started",
+        title: "Free",
+        price: "$0",
+        description: "For individuals and micro-businesses just starting out",
         features: [
-          "Core POS functionality",
-          "Basic inventory management",
-          "Up to 500 products",
+          "Basic business functionality",
+          "Simple inventory tracking",
+          "Up to 50 products",
           "1 user account",
-          "Email support",
+          "Community support",
         ],
         buttonText: "Get Started",
         popular: false,
       },
       {
-        title: "Growth",
-        price: "$79",
-        description: "For businesses ready to leverage the power of AI",
+        title: "Standard",
+        price: "$49",
+        description: "For growing businesses ready to scale operations",
         features: [
-          "Everything in Starter",
-          "AI product creation",
-          "Credit sales management",
-          "Up to 2,000 products",
+          "Everything in Free",
+          "Advanced inventory management",
+          "Up to 1,000 products",
           "3 user accounts",
-          "Priority support",
+          "Email & chat support",
+          "Basic analytics",
         ],
         buttonText: "Get Started",
         popular: true,
       },
       {
-        title: "Scale",
-        price: "$149",
-        description: "For established businesses with multiple locations",
+        title: "Premium",
+        price: "$99",
+        description: "For established businesses with advanced needs",
         features: [
-          "Everything in Growth",
-          "Advanced AI analytics",
+          "Everything in Standard",
+          "AI-powered features",
           "Multi-location support",
           "Unlimited products",
           "10 user accounts",
-          "Dedicated account manager",
+          "Priority support",
         ],
-        buttonText: "Contact Sales",
+        buttonText: "Contact Us",
         popular: false,
       },
     ],
     yearly: [
       {
-        title: "Starter",
-        price: "$24",
-        description: "Perfect for new and small retailers just getting started",
+        title: "Free",
+        price: "$0",
+        description: "For individuals and micro-businesses just starting out",
         features: [
-          "Core POS functionality",
-          "Basic inventory management",
-          "Up to 500 products",
+          "Basic business functionality",
+          "Simple inventory tracking",
+          "Up to 50 products",
           "1 user account",
-          "Email support",
+          "Community support",
         ],
         buttonText: "Get Started",
         popular: false,
       },
       {
-        title: "Growth",
-        price: "$65",
-        description: "For businesses ready to leverage the power of AI",
+        title: "Standard",
+        price: "$39",
+        description: "For growing businesses ready to scale operations",
         features: [
-          "Everything in Starter",
-          "AI product creation",
-          "Credit sales management",
-          "Up to 2,000 products",
+          "Everything in Free",
+          "Advanced inventory management",
+          "Up to 1,000 products",
           "3 user accounts",
-          "Priority support",
+          "Email & chat support",
+          "Basic analytics",
         ],
         buttonText: "Get Started",
         popular: true,
       },
       {
-        title: "Scale",
-        price: "$125",
-        description: "For established businesses with multiple locations",
+        title: "Premium",
+        price: "$79",
+        description: "For established businesses with advanced needs",
         features: [
-          "Everything in Growth",
-          "Advanced AI analytics",
+          "Everything in Standard",
+          "AI-powered features",
           "Multi-location support",
           "Unlimited products",
           "10 user accounts",
-          "Dedicated account manager",
+          "Priority support",
         ],
-        buttonText: "Contact Sales",
+        buttonText: "Contact Us",
         popular: false,
       },
     ],
@@ -204,7 +204,7 @@ export default function PricingPage() {
                 Compare plans in detail
               </h2>
               <p className="text-lg text-gray-300">
-                Find the perfect plan for your business needs. All plans include a 14-day free trial.
+                Find the perfect plan for your business needs. Start with our free tier and upgrade as you grow.
               </p>
             </FadeIn>
           </div>
@@ -215,28 +215,28 @@ export default function PricingPage() {
                 <thead>
                   <tr className="border-b border-gray-800 bg-gray-800/50">
                     <th className="px-6 py-4 text-sm font-semibold text-white">Features</th>
-                    <th className="px-6 py-4 text-sm font-semibold text-white">Starter</th>
-                    <th className="px-6 py-4 text-sm font-semibold text-white">Growth</th>
-                    <th className="px-6 py-4 text-sm font-semibold text-white">Scale</th>
+                    <th className="px-6 py-4 text-sm font-semibold text-white">Free</th>
+                    <th className="px-6 py-4 text-sm font-semibold text-white">Standard</th>
+                    <th className="px-6 py-4 text-sm font-semibold text-white">Premium</th>
                   </tr>
                 </thead>
                 <tbody>
                   {[
-                    { name: "Products", starter: "500", growth: "2,000", scale: "Unlimited" },
-                    { name: "User accounts", starter: "1", growth: "3", scale: "10" },
-                    { name: "Sales transactions", starter: "Unlimited", growth: "Unlimited", scale: "Unlimited" },
-                    { name: "Basic inventory", starter: true, growth: true, scale: true },
-                    { name: "Customer database", starter: true, growth: true, scale: true },
-                    { name: "Mobile app", starter: true, growth: true, scale: true },
-                    { name: "Offline mode", starter: true, growth: true, scale: true },
-                    { name: "AI product creation", starter: false, growth: true, scale: true },
-                    { name: "Credit sales", starter: false, growth: true, scale: true },
-                    { name: "AI insights", starter: false, growth: true, scale: true },
-                    { name: "Multi-location", starter: false, growth: false, scale: true },
-                    { name: "Advanced analytics", starter: false, growth: false, scale: true },
-                    { name: "API access", starter: false, growth: false, scale: true },
-                    { name: "White labeling", starter: false, growth: false, scale: true },
-                    { name: "Dedicated account manager", starter: false, growth: false, scale: true },
+                    { name: "Products", free: "50", standard: "1,000", premium: "Unlimited" },
+                    { name: "User accounts", free: "1", standard: "3", premium: "10" },
+                    { name: "Sales transactions", free: "Unlimited", standard: "Unlimited", premium: "Unlimited" },
+                    { name: "Basic inventory", free: true, standard: true, premium: true },
+                    { name: "Customer database", free: true, standard: true, premium: true },
+                    { name: "Mobile app", free: true, standard: true, premium: true },
+                    { name: "Offline mode", free: true, standard: true, premium: true },
+                    { name: "Advanced inventory", free: false, standard: true, premium: true },
+                    { name: "Credit sales", free: false, standard: true, premium: true },
+                    { name: "Basic analytics", free: false, standard: true, premium: true },
+                    { name: "AI product creation", free: false, standard: false, premium: true },
+                    { name: "AI insights", free: false, standard: false, premium: true },
+                    { name: "Multi-location", free: false, standard: false, premium: true },
+                    { name: "Advanced analytics", free: false, standard: false, premium: true },
+                    { name: "Priority support", free: false, standard: false, premium: true },
                   ].map((feature, index) => (
                     <tr
                       key={feature.name}
@@ -244,36 +244,36 @@ export default function PricingPage() {
                     >
                       <td className="px-6 py-4 text-sm font-medium text-white">{feature.name}</td>
                       <td className="px-6 py-4 text-sm text-gray-300">
-                        {typeof feature.starter === "boolean" ? (
-                          feature.starter ? (
+                        {typeof feature.free === "boolean" ? (
+                          feature.free ? (
                             <Check className="h-5 w-5 text-green-500" />
                           ) : (
                             <span className="text-gray-500">—</span>
                           )
                         ) : (
-                          feature.starter
+                          feature.free
                         )}
                       </td>
                       <td className="px-6 py-4 text-sm text-gray-300">
-                        {typeof feature.growth === "boolean" ? (
-                          feature.growth ? (
+                        {typeof feature.standard === "boolean" ? (
+                          feature.standard ? (
                             <Check className="h-5 w-5 text-green-500" />
                           ) : (
                             <span className="text-gray-500">—</span>
                           )
                         ) : (
-                          feature.growth
+                          feature.standard
                         )}
                       </td>
                       <td className="px-6 py-4 text-sm text-gray-300">
-                        {typeof feature.scale === "boolean" ? (
-                          feature.scale ? (
+                        {typeof feature.premium === "boolean" ? (
+                          feature.premium ? (
                             <Check className="h-5 w-5 text-green-500" />
                           ) : (
                             <span className="text-gray-500">—</span>
                           )
                         ) : (
-                          feature.scale
+                          feature.premium
                         )}
                       </td>
                     </tr>
@@ -321,18 +321,18 @@ export default function PricingPage() {
 
             <FadeIn delay={0.3}>
               <div>
-                <h3 className="text-xl font-semibold text-white">What happens after my free trial?</h3>
+                <h3 className="text-xl font-semibold text-white">Is the Free tier really free forever?</h3>
                 <p className="mt-2 text-gray-300">
-                  After your 14-day free trial, you'll be automatically subscribed to the plan you selected. Don't worry - we'll send you a reminder before your trial ends.
+                  Yes! Our Free tier is completely free with no time limits. You can use it for as long as you want with the included features. Upgrade to a paid plan when you need more advanced features.
                 </p>
               </div>
             </FadeIn>
 
             <FadeIn delay={0.4}>
               <div>
-                <h3 className="text-xl font-semibold text-white">Do I need to enter my payment details for the free trial?</h3>
+                <h3 className="text-xl font-semibold text-white">Is iHustle suitable for emerging markets?</h3>
                 <p className="mt-2 text-gray-300">
-                  No. You can try iHustle POS completely free for 14 days without entering any payment information. We'll only ask for payment details when you decide to continue.
+                  Absolutely! iHustle is designed for diverse markets worldwide, with features like mobile money integration, offline functionality, and support for local currencies and languages.
                 </p>
               </div>
             </FadeIn>

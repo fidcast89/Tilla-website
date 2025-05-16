@@ -14,7 +14,8 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { FloatingElements } from "@/components/floating-elements"
 import { ElegantShapesBackground } from "@/components/elegant-shapes"
-import { HowItWorksMockup } from "@/components/how-it-works-mockup"
+import { HowItWorksMockup } from "@/components/feature-mockups/how-it-works-mockup"
+import { DynamicHero } from "@/components/dynamic-hero"
 
 export default function Home() {
   const { scrollYProgress } = useScroll()
@@ -38,41 +39,7 @@ export default function Home() {
 
         <div className="container relative mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col-reverse items-center justify-between gap-12 md:flex-row md:items-center lg:gap-16 xl:gap-24">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="w-full max-w-xl flex-shrink-0 md:w-1/2"
-            >
-              <FadeIn delay={0.2}>
-                <h1 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
-                  Your <span className="text-primary">Hustle</span>, supercharged with AI
-                </h1>
-              </FadeIn>
-
-              <FadeIn delay={0.3}>
-                <p className="mb-8 max-w-lg text-lg text-gray-300">
-                  We've built the mobile POS system we always wanted - mobile-first, smart, simple, and actually fun to
-                  use. Let AI handle the boring stuff while you focus on growing your Hustle.
-                </p>
-              </FadeIn>
-
-              <FadeIn delay={0.4}>
-                <div className="flex flex-wrap gap-4">
-                  <Button size="lg" className="rounded-full bg-primary text-white hover:bg-primary/90">
-                    Try it for free <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </div>
-              </FadeIn>
-
-              <FadeIn delay={0.5}>
-                <div className="mt-8">
-                  <p className="text-sm text-gray-400">
-                    No credit card required • 14-day free trial • Setup in minutes
-                  </p>
-                </div>
-              </FadeIn>
-            </motion.div>
+            <DynamicHero />
 
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -178,7 +145,7 @@ export default function Home() {
                 Simple enough for anyone to use
               </h2>
               <p className="text-lg text-gray-300">
-                No tech degree required. If you can use a smartphone, you can use iHustle POS.
+                No tech degree required. If you can use a smartphone, you can use iHustle.
               </p>
             </FadeIn>
           </div>
@@ -270,7 +237,7 @@ export default function Home() {
               <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
                 Don't just take our word for it
               </h2>
-              <p className="text-lg text-gray-300">Here's what our beta testers have to say about iHustle POS.</p>
+              <p className="text-lg text-gray-300">Here's what our beta testers have to say about iHustle.</p>
             </FadeIn>
           </div>
 
@@ -326,7 +293,7 @@ export default function Home() {
               price="$29"
               description="Perfect for new and small retailers just getting started"
               features={[
-                "Core POS functionality",
+                "Core business functionality",
                 "Basic inventory management",
                 "Up to 500 products",
                 "1 user account",
@@ -404,7 +371,7 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button size="lg" className="rounded-full bg-white text-primary hover:bg-white/90">
-                  Start your free trial <ArrowRight className="ml-2 h-4 w-4" />
+                  Contact Us <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 <Button size="lg" variant="outline" className="rounded-full border-white text-white hover:bg-white/10">
                   See a demo
@@ -491,6 +458,26 @@ export default function Home() {
                 </p>
               </div>
             </FadeIn>
+
+            <FadeIn delay={0.7}>
+              <div>
+                <h3 className="text-xl font-semibold text-white">Is iHustle suitable for emerging markets?</h3>
+                <p className="mt-2 text-gray-300">
+                  Absolutely! iHustle is designed for diverse markets worldwide, with features like mobile money integration,
+                  offline functionality, and support for local currencies and languages.
+                </p>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.8}>
+              <div>
+                <h3 className="text-xl font-semibold text-white">Do you offer implementation support?</h3>
+                <p className="mt-2 text-gray-300">
+                  Yes! We provide comprehensive onboarding and implementation support to help you get started. Our team will
+                  guide you through the setup process and ensure you're making the most of iHustle.
+                </p>
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -502,14 +489,14 @@ export default function Home() {
             <div className="text-center">
               <FadeIn>
                 <h2 className="mb-6 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                  Try iHustle free for 14 days
+                  Ready to transform your business?
                 </h2>
                 <p className="mb-8 text-lg text-white/80">
-                  No credit card needed. See how AI can transform your Hustle.
+                  Get in touch to see how AI can transform your Hustle.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
                   <Button size="lg" className="rounded-full bg-white text-primary hover:bg-white/90">
-                    Start your free trial <ArrowRight className="ml-2 h-4 w-4" />
+                    Contact Us <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                   <Button
                     size="lg"
@@ -517,6 +504,12 @@ export default function Home() {
                     className="rounded-full border-white text-white hover:bg-white/10"
                   >
                     Schedule a demo
+                  </Button>
+                  <Button
+                    size="lg"
+                    className="rounded-full bg-black text-white hover:bg-black/90"
+                  >
+                    Apply for Beta
                   </Button>
                 </div>
                 <p className="mt-6 text-sm text-white/70">
