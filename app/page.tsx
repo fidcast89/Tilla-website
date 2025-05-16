@@ -13,6 +13,7 @@ import { FadeIn } from "@/components/fade-in"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { FloatingElements } from "@/components/floating-elements"
+import { ElegantShapesBackground } from "@/components/elegant-shapes"
 import { HowItWorksMockup } from "@/components/how-it-works-mockup"
 
 export default function Home() {
@@ -33,6 +34,7 @@ export default function Home() {
       {/* Hero Section - With geometric background */}
       <section className="relative overflow-hidden bg-gradient-to-b from-gray-900 to-gray-950 pt-20 pb-32">
         <FloatingElements />
+        <ElegantShapesBackground />
 
         <div className="container relative mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col-reverse items-center justify-between gap-12 md:flex-row md:items-center lg:gap-16 xl:gap-24">

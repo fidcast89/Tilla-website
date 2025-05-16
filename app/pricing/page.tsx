@@ -8,6 +8,7 @@ import { Footer } from "@/components/footer"
 import { FadeIn } from "@/components/fade-in"
 import { PricingCard } from "@/components/pricing-card"
 import { FloatingElements } from "@/components/floating-elements"
+import { ElegantShapesBackground } from "@/components/elegant-shapes"
 
 export default function PricingPage() {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly")
@@ -114,6 +115,7 @@ export default function PricingPage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-b from-gray-900 to-gray-950 pt-24 pb-16">
         <FloatingElements />
+        <ElegantShapesBackground />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center relative z-10">
