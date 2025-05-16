@@ -287,53 +287,66 @@ export default function Home() {
             </FadeIn>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             <PricingCard
-              title="Starter"
-              price="$29"
-              description="Perfect for new and small retailers just getting started"
+              title="Free"
+              price="$0"
+              description="For individuals and micro-businesses just starting out"
               features={[
-                "Core business functionality",
                 "Basic inventory management",
-                "Up to 500 products",
+                "Up to 50 products",
                 "1 user account",
-                "Email support",
+                "Basic sales tracking",
+                "Offline functionality",
               ]}
               buttonText="Get Started"
               popular={false}
               delay={0.1}
             />
             <PricingCard
-              title="Growth"
-              price="$79"
-              description="For businesses ready to leverage the power of AI"
+              title="Starter"
+              price="$12"
+              description="For small businesses ready to grow"
               features={[
-                "Everything in Starter",
-                "AI product creation",
-                "Credit sales management",
-                "Up to 2,000 products",
-                "3 user accounts",
-                "Priority support",
+                "Up to 500 products",
+                "2 user accounts",
+                "Customer database",
+                "Credit sales tracking",
+                "Basic reports",
               ]}
               buttonText="Get Started"
               popular={true}
               delay={0.2}
             />
             <PricingCard
-              title="Scale"
-              price="$149"
+              title="Growth"
+              price="$29"
+              description="For growing businesses with advanced needs"
+              features={[
+                "Up to 2,000 products",
+                "5 user accounts",
+                "Advanced inventory",
+                "Sales analytics",
+                "Multi-branch (2 locations)",
+              ]}
+              buttonText="Get Started"
+              popular={false}
+              delay={0.3}
+            />
+            <PricingCard
+              title="Enterprise"
+              price="$79"
               description="For established businesses with multiple locations"
               features={[
-                "Everything in Growth",
-                "Advanced AI analytics",
-                "Multi-location support",
                 "Unlimited products",
-                "10 user accounts",
-                "Dedicated account manager",
+                "10+ user accounts",
+                "AI-powered features",
+                "Advanced analytics",
+                "Unlimited locations",
               ]}
               buttonText="Contact Sales"
               popular={false}
-              delay={0.3}
+              delay={0.4}
             />
           </div>
 

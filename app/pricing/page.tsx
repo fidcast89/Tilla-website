@@ -20,41 +20,61 @@ export default function PricingPage() {
         price: "$0",
         description: "For individuals and micro-businesses just starting out",
         features: [
-          "Basic business functionality",
-          "Simple inventory tracking",
+          "Basic inventory management",
           "Up to 50 products",
           "1 user account",
+          "Basic sales tracking",
+          "Offline functionality",
           "Community support",
         ],
         buttonText: "Get Started",
         popular: false,
       },
       {
-        title: "Standard",
-        price: "$49",
-        description: "For growing businesses ready to scale operations",
+        title: "Starter",
+        price: "$12",
+        description: "For small businesses ready to grow",
         features: [
           "Everything in Free",
-          "Advanced inventory management",
-          "Up to 1,000 products",
-          "3 user accounts",
-          "Email & chat support",
-          "Basic analytics",
+          "Up to 500 products",
+          "2 user accounts",
+          "Customer database",
+          "Credit sales tracking",
+          "Basic reports",
+          "Email support",
         ],
         buttonText: "Get Started",
         popular: true,
       },
       {
-        title: "Premium",
-        price: "$99",
-        description: "For established businesses with advanced needs",
+        title: "Growth",
+        price: "$29",
+        description: "For growing businesses with advanced needs",
         features: [
-          "Everything in Standard",
-          "AI-powered features",
-          "Multi-location support",
+          "Everything in Starter",
+          "Up to 2,000 products",
+          "5 user accounts",
+          "Advanced inventory management",
+          "Sales analytics dashboard",
+          "Multi-branch support (2 locations)",
+          "Priority email & chat support",
+        ],
+        buttonText: "Get Started",
+        popular: false,
+      },
+      {
+        title: "Enterprise",
+        price: "$79",
+        description: "For established businesses with multiple locations",
+        features: [
+          "Everything in Growth",
           "Unlimited products",
-          "10 user accounts",
-          "Priority support",
+          "10+ user accounts",
+          "AI-powered features",
+          "Advanced analytics & reporting",
+          "Multi-location support (unlimited)",
+          "Dedicated account manager",
+          "Custom integrations",
         ],
         buttonText: "Contact Us",
         popular: false,
@@ -66,41 +86,61 @@ export default function PricingPage() {
         price: "$0",
         description: "For individuals and micro-businesses just starting out",
         features: [
-          "Basic business functionality",
-          "Simple inventory tracking",
+          "Basic inventory management",
           "Up to 50 products",
           "1 user account",
+          "Basic sales tracking",
+          "Offline functionality",
           "Community support",
         ],
         buttonText: "Get Started",
         popular: false,
       },
       {
-        title: "Standard",
-        price: "$39",
-        description: "For growing businesses ready to scale operations",
+        title: "Starter",
+        price: "$9",
+        description: "For small businesses ready to grow",
         features: [
           "Everything in Free",
-          "Advanced inventory management",
-          "Up to 1,000 products",
-          "3 user accounts",
-          "Email & chat support",
-          "Basic analytics",
+          "Up to 500 products",
+          "2 user accounts",
+          "Customer database",
+          "Credit sales tracking",
+          "Basic reports",
+          "Email support",
         ],
         buttonText: "Get Started",
         popular: true,
       },
       {
-        title: "Premium",
-        price: "$79",
-        description: "For established businesses with advanced needs",
+        title: "Growth",
+        price: "$24",
+        description: "For growing businesses with advanced needs",
         features: [
-          "Everything in Standard",
-          "AI-powered features",
-          "Multi-location support",
+          "Everything in Starter",
+          "Up to 2,000 products",
+          "5 user accounts",
+          "Advanced inventory management",
+          "Sales analytics dashboard",
+          "Multi-branch support (2 locations)",
+          "Priority email & chat support",
+        ],
+        buttonText: "Get Started",
+        popular: false,
+      },
+      {
+        title: "Enterprise",
+        price: "$65",
+        description: "For established businesses with multiple locations",
+        features: [
+          "Everything in Growth",
           "Unlimited products",
-          "10 user accounts",
-          "Priority support",
+          "10+ user accounts",
+          "AI-powered features",
+          "Advanced analytics & reporting",
+          "Multi-location support (unlimited)",
+          "Dedicated account manager",
+          "Custom integrations",
         ],
         buttonText: "Contact Us",
         popular: false,
@@ -159,7 +199,7 @@ export default function PricingPage() {
       {/* Pricing Cards */}
       <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {pricingPlans[billingCycle].map((plan, index) => (
               <PricingCard
                 key={plan.title}
@@ -216,27 +256,30 @@ export default function PricingPage() {
                   <tr className="border-b border-gray-800 bg-gray-800/50">
                     <th className="px-6 py-4 text-sm font-semibold text-white">Features</th>
                     <th className="px-6 py-4 text-sm font-semibold text-white">Free</th>
-                    <th className="px-6 py-4 text-sm font-semibold text-white">Standard</th>
-                    <th className="px-6 py-4 text-sm font-semibold text-white">Premium</th>
+                    <th className="px-6 py-4 text-sm font-semibold text-white">Starter</th>
+                    <th className="px-6 py-4 text-sm font-semibold text-white">Growth</th>
+                    <th className="px-6 py-4 text-sm font-semibold text-white">Enterprise</th>
                   </tr>
                 </thead>
                 <tbody>
                   {[
-                    { name: "Products", free: "50", standard: "1,000", premium: "Unlimited" },
-                    { name: "User accounts", free: "1", standard: "3", premium: "10" },
-                    { name: "Sales transactions", free: "Unlimited", standard: "Unlimited", premium: "Unlimited" },
-                    { name: "Basic inventory", free: true, standard: true, premium: true },
-                    { name: "Customer database", free: true, standard: true, premium: true },
-                    { name: "Mobile app", free: true, standard: true, premium: true },
-                    { name: "Offline mode", free: true, standard: true, premium: true },
-                    { name: "Advanced inventory", free: false, standard: true, premium: true },
-                    { name: "Credit sales", free: false, standard: true, premium: true },
-                    { name: "Basic analytics", free: false, standard: true, premium: true },
-                    { name: "AI product creation", free: false, standard: false, premium: true },
-                    { name: "AI insights", free: false, standard: false, premium: true },
-                    { name: "Multi-location", free: false, standard: false, premium: true },
-                    { name: "Advanced analytics", free: false, standard: false, premium: true },
-                    { name: "Priority support", free: false, standard: false, premium: true },
+                    { name: "Products", free: "50", starter: "500", growth: "2,000", enterprise: "Unlimited" },
+                    { name: "User accounts", free: "1", starter: "2", growth: "5", enterprise: "10+" },
+                    { name: "Sales transactions", free: "Unlimited", starter: "Unlimited", growth: "Unlimited", enterprise: "Unlimited" },
+                    { name: "Basic inventory", free: true, starter: true, growth: true, enterprise: true },
+                    { name: "Offline mode", free: true, starter: true, growth: true, enterprise: true },
+                    { name: "Mobile app", free: true, starter: true, growth: true, enterprise: true },
+                    { name: "Customer database", free: false, starter: true, growth: true, enterprise: true },
+                    { name: "Credit sales", free: false, starter: true, growth: true, enterprise: true },
+                    { name: "Basic reports", free: false, starter: true, growth: true, enterprise: true },
+                    { name: "Advanced inventory", free: false, starter: false, growth: true, enterprise: true },
+                    { name: "Sales analytics", free: false, starter: false, growth: true, enterprise: true },
+                    { name: "Multi-branch support", free: false, starter: false, growth: "2 locations", enterprise: "Unlimited" },
+                    { name: "AI product creation", free: false, starter: false, growth: false, enterprise: true },
+                    { name: "AI insights", free: false, starter: false, growth: false, enterprise: true },
+                    { name: "Advanced analytics", free: false, starter: false, growth: false, enterprise: true },
+                    { name: "Custom integrations", free: false, starter: false, growth: false, enterprise: true },
+                    { name: "Dedicated account manager", free: false, starter: false, growth: false, enterprise: true },
                   ].map((feature, index) => (
                     <tr
                       key={feature.name}
@@ -255,25 +298,36 @@ export default function PricingPage() {
                         )}
                       </td>
                       <td className="px-6 py-4 text-sm text-gray-300">
-                        {typeof feature.standard === "boolean" ? (
-                          feature.standard ? (
+                        {typeof feature.starter === "boolean" ? (
+                          feature.starter ? (
                             <Check className="h-5 w-5 text-green-500" />
                           ) : (
                             <span className="text-gray-500">—</span>
                           )
                         ) : (
-                          feature.standard
+                          feature.starter
                         )}
                       </td>
                       <td className="px-6 py-4 text-sm text-gray-300">
-                        {typeof feature.premium === "boolean" ? (
-                          feature.premium ? (
+                        {typeof feature.growth === "boolean" ? (
+                          feature.growth ? (
                             <Check className="h-5 w-5 text-green-500" />
                           ) : (
                             <span className="text-gray-500">—</span>
                           )
                         ) : (
-                          feature.premium
+                          feature.growth
+                        )}
+                      </td>
+                      <td className="px-6 py-4 text-sm text-gray-300">
+                        {typeof feature.enterprise === "boolean" ? (
+                          feature.enterprise ? (
+                            <Check className="h-5 w-5 text-green-500" />
+                          ) : (
+                            <span className="text-gray-500">—</span>
+                          )
+                        ) : (
+                          feature.enterprise
                         )}
                       </td>
                     </tr>
