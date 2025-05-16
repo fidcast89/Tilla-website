@@ -90,19 +90,7 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <div className="flex items-start">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                      <MapPin className="h-5 w-5 text-primary" />
-                    </div>
-                    <div className="ml-4">
-                      <h3 className="text-lg font-medium text-white">Office</h3>
-                      <p className="mt-1 text-gray-300">
-                        123 Business Avenue
-                        <br />
-                        Nairobi, Kenya
-                      </p>
-                    </div>
-                  </div>
+
 
                   <div className="flex items-start">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10">
