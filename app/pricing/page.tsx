@@ -44,7 +44,7 @@ export default function PricingPage() {
           "Email support",
         ],
         buttonText: "Get Started",
-        popular: true,
+        popular: false,
       },
       {
         title: "Growth",
@@ -60,7 +60,7 @@ export default function PricingPage() {
           "Priority email & chat support",
         ],
         buttonText: "Get Started",
-        popular: false,
+        popular: true,
       },
       {
         title: "Enterprise",
@@ -110,7 +110,7 @@ export default function PricingPage() {
           "Email support",
         ],
         buttonText: "Get Started",
-        popular: true,
+        popular: false,
       },
       {
         title: "Growth",
@@ -126,7 +126,7 @@ export default function PricingPage() {
           "Priority email & chat support",
         ],
         buttonText: "Get Started",
-        popular: false,
+        popular: true,
       },
       {
         title: "Enterprise",

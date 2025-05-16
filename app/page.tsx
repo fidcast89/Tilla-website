@@ -315,7 +315,7 @@ export default function Home() {
                 "Basic reports",
               ]}
               buttonText="Get Started"
-              popular={true}
+              popular={false}
               delay={0.2}
             />
             <PricingCard
@@ -330,7 +330,7 @@ export default function Home() {
                 "Multi-branch (2 locations)",
               ]}
               buttonText="Get Started"
-              popular={false}
+              popular={true}
               delay={0.3}
             />
             <PricingCard
