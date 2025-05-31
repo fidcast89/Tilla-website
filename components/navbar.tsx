@@ -31,9 +31,7 @@ export function Navbar() {
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <span className="text-xl font-bold text-white">
-                <span className="text-primary">i</span>Hustle
-              </span>
+              <img src="/logo_n_tagline_horizontal.png" alt="iHustle Logo" className="h-8" />
             </Link>
           </div>
 
