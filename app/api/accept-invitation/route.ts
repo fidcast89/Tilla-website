@@ -20,26 +20,11 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // First try a simple query without joins
-    console.log('🔍 API DEBUG: Trying simple query first...');
-    const { data: simpleInvitation, error: simpleError } = await supabase
-      .from('user_invitations')
-      .select('*')
-      .eq('invitation_token', token)
-      .single();
-
-    console.log('🔍 API DEBUG: Simple query result:', { simpleInvitation, simpleError });
-
-    // Get invitation details with joins
+    // Get invitation details (use simple query since it works)
     console.log('🔍 API DEBUG: Querying database for token:', token);
     const { data: invitation, error: getError } = await supabase
       .from('user_invitations')
-      .select(`
-        *,
-        businesses(name),
-        roles(name),
-        profiles!invited_by(full_name)
-      `)
+      .select('*')
       .eq('invitation_token', token)
       .eq('status', 'pending')
       .single();
@@ -53,6 +38,30 @@ export async function POST(request: NextRequest) {
         { status: 404 }
       );
     }
+
+    // Get additional data separately
+    console.log('🔍 API DEBUG: Getting business name...');
+    const { data: business } = await supabase
+      .from('businesses')
+      .select('name')
+      .eq('id', invitation.business_id)
+      .single();
+
+    console.log('🔍 API DEBUG: Getting role name...');
+    const { data: role } = await supabase
+      .from('roles')
+      .select('name')
+      .eq('id', invitation.role_id)
+      .single();
+
+    console.log('🔍 API DEBUG: Getting inviter name...');
+    const { data: inviter } = await supabase
+      .from('profiles')
+      .select('full_name')
+      .eq('id', invitation.invited_by)
+      .single();
+
+    console.log('🔍 API DEBUG: Additional data:', { business, role, inviter });
 
     // Check if invitation is expired
     const expiresAt = new Date(invitation.expires_at);
@@ -69,9 +78,9 @@ export async function POST(request: NextRequest) {
     return Response.json({
       success: true,
       invitation: {
-        businessName: invitation.businesses?.name || 'Unknown Business',
-        roleName: invitation.roles?.name || 'Team Member',
-        invitedBy: invitation.profiles?.full_name || 'Someone',
+        businessName: business?.name || 'Unknown Business',
+        roleName: role?.name || 'Team Member',
+        invitedBy: inviter?.full_name || 'Someone',
         email: invitation.email,
         expiresAt: invitation.expires_at
       }
