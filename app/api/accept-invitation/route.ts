@@ -11,6 +11,8 @@ export async function POST(request: NextRequest) {
   try {
     const { token } = await request.json();
 
+    console.log('🔍 API DEBUG: Received token:', token);
+
     if (!token) {
       return Response.json(
         { error: 'Token is required' },
@@ -18,7 +20,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Get invitation details
+    // First try a simple query without joins
+    console.log('🔍 API DEBUG: Trying simple query first...');
+    const { data: simpleInvitation, error: simpleError } = await supabase
+      .from('user_invitations')
+      .select('*')
+      .eq('invitation_token', token)
+      .single();
+
+    console.log('🔍 API DEBUG: Simple query result:', { simpleInvitation, simpleError });
+
+    // Get invitation details with joins
+    console.log('🔍 API DEBUG: Querying database for token:', token);
     const { data: invitation, error: getError } = await supabase
       .from('user_invitations')
       .select(`
@@ -31,9 +44,12 @@ export async function POST(request: NextRequest) {
       .eq('status', 'pending')
       .single();
 
+    console.log('🔍 API DEBUG: Database response:', { invitation, error: getError });
+
     if (getError || !invitation) {
+      console.log('🔍 API DEBUG: No invitation found or error occurred');
       return Response.json(
-        { error: 'Invitation not found or has expired' },
+        { error: 'Invitation not found or has expired', debug: { getError, hasInvitation: !!invitation } },
         { status: 404 }
       );
     }
