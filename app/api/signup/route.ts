@@ -82,8 +82,9 @@ export async function POST(request: NextRequest) {
 
     if (authError) {
       console.log('🔍 SIGNUP DEBUG: Auth error:', authError);
+      console.log('🔍 SIGNUP DEBUG: Auth error details:', JSON.stringify(authError, null, 2));
       return Response.json(
-        { error: authError.message || 'Failed to create user account' },
+        { error: `Auth error: ${authError.message || 'Failed to create user account'}` },
         { status: 400 }
       );
     }
@@ -140,9 +141,10 @@ export async function POST(request: NextRequest) {
 
     if (businessUserError) {
       console.log('🔍 SIGNUP DEBUG: Business user creation error:', businessUserError);
+      console.log('🔍 SIGNUP DEBUG: Business user error details:', JSON.stringify(businessUserError, null, 2));
       // This is important, so we should handle this error
       return Response.json(
-        { error: 'Account created but failed to join business. Please contact support.' },
+        { error: `Business join error: ${businessUserError.message || 'Account created but failed to join business. Please contact support.'}` },
         { status: 500 }
       );
     }
@@ -163,7 +165,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('🔍 SIGNUP DEBUG: Unexpected error:', error);
     return Response.json(
-      { error: 'Internal server error' },
+      { error: `Internal server error: ${error instanceof Error ? error.message : 'Unknown error'}` },
       { status: 500 }
     );
   }

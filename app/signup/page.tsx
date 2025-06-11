@@ -150,7 +150,8 @@ export default function SignupPage() {
       }, 3000);
 
     } catch (err) {
-      setError('Failed to create account. Please try again.');
+      console.error('Signup error:', err);
+      setError(err instanceof Error ? err.message : 'Failed to create account. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -441,9 +442,9 @@ export default function SignupPage() {
                 />
               </svg>
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Bank-Level Security</h3>
+            <h3 className="text-lg font-semibold text-white mb-2">Secure & Reliable</h3>
             <p className="text-slate-400">
-              Your transactions and customer data are protected with the same security banks use.
+              Your business data is encrypted and backed up automatically to keep everything safe.
             </p>
           </div>
           <div className="bg-slate-900/60 backdrop-blur-sm rounded-xl p-5 border border-slate-800">
