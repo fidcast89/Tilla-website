@@ -30,15 +30,7 @@ export async function POST(request: NextRequest) {
           id,
           name,
           country,
-          currency,
-          timezone,
-          business_type,
-          phone,
-          email,
-          address,
-          city,
-          state,
-          postal_code
+          currency
         ),
         roles(id, name)
       `)
@@ -100,8 +92,11 @@ export async function POST(request: NextRequest) {
         full_name: fullName,
         email: email,
         phone: phone || null,
+        address: null,
+        business_id: invitation.business_id,
         country: invitation.businesses?.country || null,
-        timezone: invitation.businesses?.timezone || null,
+        currency: invitation.businesses?.currency || null,
+        role: 'staff',
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString()
       });
