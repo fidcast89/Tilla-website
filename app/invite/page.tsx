@@ -1,9 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { Check, User, Building2, UserCheck, Mail, Calendar } from "lucide-react";
+import { FloatingElements } from "@/components/floating-elements";
 
 interface InvitationData {
   businessName: string;
+  businessCountry: string;
+  businessCurrency: string;
   roleName: string;
   invitedBy: string;
   email: string;
@@ -68,129 +72,135 @@ export default function InvitePage() {
     const urlParams = new URLSearchParams(window.location.search);
     const token = urlParams.get("token");
 
-    // Redirect to signup page with invitation context
-    const params = new URLSearchParams({
-      business: invitation?.businessName || '',
-      role: invitation?.roleName || '',
-      email: invitation?.email || '',
-      invitation: token || ''
-    });
+    // Store invitation data securely in session storage
+    if (invitation && token) {
+      const invitationData = {
+        businessName: invitation.businessName,
+        roleName: invitation.roleName,
+        email: invitation.email,
+        businessCountry: invitation.businessCountry,
+        businessCurrency: invitation.businessCurrency,
+        invitedBy: invitation.invitedBy,
+        token: token,
+        timestamp: Date.now() // For expiration check
+      };
 
-    router.push(`/signup?${params.toString()}`);
+      sessionStorage.setItem('invitationData', JSON.stringify(invitationData));
+    }
+
+    // Redirect to signup page without sensitive data in URL
+    router.push('/signup');
   }
 
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      minHeight: '100vh',
-      padding: '20px',
-      fontFamily: 'Arial, sans-serif'
-    }}>
-      <div style={{
-        maxWidth: '500px',
-        textAlign: 'center',
-        padding: '40px',
-        borderRadius: '10px',
-        boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-        backgroundColor: 'white'
-      }}>
+    <div className="relative min-h-screen bg-black overflow-hidden">
+      {/* Background elements */}
+      <FloatingElements />
+      <div className="container max-w-4xl mx-auto px-4 py-16 relative z-10">
+        <div className="flex flex-col items-center justify-center min-h-[80vh]">
+          <div className="bg-slate-900/60 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-slate-800 shadow-xl max-w-2xl w-full">
 
-        {status === 'loading' && (
-          <>
-            <div style={{
-              width: '50px',
-              height: '50px',
-              border: '3px solid #f3f3f3',
-              borderTop: '3px solid #00A86B',
-              borderRadius: '50%',
-              animation: 'spin 1s linear infinite',
-              margin: '0 auto 20px'
-            }}></div>
-            <h1 style={{ color: '#333' }}>Processing Invitation</h1>
-          </>
-        )}
+            {status === 'loading' && (
+              <div className="text-center">
+                <div className="w-16 h-16 border-4 border-slate-600 border-t-primary rounded-full animate-spin mx-auto mb-6"></div>
+                <h1 className="text-2xl font-bold text-white mb-2">Processing Invitation</h1>
+                <p className="text-slate-400">Please wait while we verify your invitation...</p>
+              </div>
+            )}
 
-        {status === 'found' && invitation && (
-          <>
-            <div style={{ fontSize: '50px', color: '#00A86B', marginBottom: '20px' }}>📧</div>
-            <h1 style={{ color: '#00A86B', marginBottom: '20px' }}>You're Invited!</h1>
+            {status === 'found' && invitation && (
+              <div className="text-center">
+                {/* Header */}
+                <div className="mb-8">
+                  <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-6">
+                    <Mail className="w-10 h-10 text-primary" />
+                  </div>
+                  <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                    You're Invited to Join <span className="text-primary">{invitation.businessName}</span>!
+                  </h1>
+                  <p className="text-slate-400 text-lg">
+                    Complete your setup to start working as <strong className="text-primary">{invitation.roleName}</strong>
+                  </p>
+                </div>
 
-            <div style={{ textAlign: 'left', marginBottom: '30px', padding: '20px', backgroundColor: '#f8f9fa', borderRadius: '8px' }}>
-              <p><strong>Business:</strong> {invitation.businessName}</p>
-              <p><strong>Role:</strong> {invitation.roleName}</p>
-              <p><strong>Invited by:</strong> {invitation.invitedBy}</p>
-              <p><strong>Email:</strong> {invitation.email}</p>
-            </div>
+                {/* Invitation Details */}
+                <div className="bg-slate-800/50 rounded-xl p-6 mb-8 text-left">
+                  <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
+                    <UserCheck className="w-5 h-5 text-primary mr-2" />
+                    Invitation Details
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="flex items-center">
+                      <Building2 className="w-4 h-4 text-slate-400 mr-3" />
+                      <span className="text-slate-300">Business:</span>
+                      <span className="text-white ml-2 font-medium">{invitation.businessName}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <User className="w-4 h-4 text-slate-400 mr-3" />
+                      <span className="text-slate-300">Role:</span>
+                      <span className="text-primary ml-2 font-medium">{invitation.roleName}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <UserCheck className="w-4 h-4 text-slate-400 mr-3" />
+                      <span className="text-slate-300">Invited by:</span>
+                      <span className="text-white ml-2 font-medium">{invitation.invitedBy}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <Mail className="w-4 h-4 text-slate-400 mr-3" />
+                      <span className="text-slate-300">Email:</span>
+                      <span className="text-white ml-2 font-medium">{invitation.email}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <Calendar className="w-4 h-4 text-slate-400 mr-3" />
+                      <span className="text-slate-300">Expires:</span>
+                      <span className="text-white ml-2 font-medium">
+                        {new Date(invitation.expiresAt).toLocaleDateString()}
+                      </span>
+                    </div>
+                  </div>
+                </div>
 
-            <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
-              <button
-                onClick={handleAccept}
-                style={{
-                  backgroundColor: '#00A86B',
-                  color: 'white',
-                  border: 'none',
-                  padding: '12px 24px',
-                  borderRadius: '5px',
-                  fontSize: '16px',
-                  cursor: 'pointer'
-                }}
-              >
-                Accept Invitation
-              </button>
-              <button
-                onClick={() => router.push('/')}
-                style={{
-                  backgroundColor: '#6c757d',
-                  color: 'white',
-                  border: 'none',
-                  padding: '12px 24px',
-                  borderRadius: '5px',
-                  fontSize: '16px',
-                  cursor: 'pointer'
-                }}
-              >
-                Decline
-              </button>
-            </div>
-          </>
-        )}
+                {/* Action Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <button
+                    onClick={handleAccept}
+                    className="px-8 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
+                  >
+                    <Check className="w-5 h-5" />
+                    Accept Invitation
+                  </button>
+                  <button
+                    onClick={() => router.push('/')}
+                    className="px-8 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-semibold transition-colors"
+                  >
+                    Decline
+                  </button>
+                </div>
+              </div>
+            )}
 
-        {(status === 'error' || status === 'expired') && (
-          <>
-            <div style={{ fontSize: '50px', color: '#e74c3c', marginBottom: '20px' }}>
-              {status === 'expired' ? '⏰' : '❌'}
-            </div>
-            <h1 style={{ color: '#e74c3c' }}>
-              {status === 'expired' ? 'Invitation Expired' : 'Invitation Error'}
-            </h1>
-            <p style={{ color: '#666', marginBottom: '20px' }}>{message}</p>
-            <button
-              onClick={() => router.push('/')}
-              style={{
-                backgroundColor: '#00A86B',
-                color: 'white',
-                border: 'none',
-                padding: '12px 24px',
-                borderRadius: '5px',
-                fontSize: '16px',
-                cursor: 'pointer'
-              }}
-            >
-              Go Home
-            </button>
-          </>
-        )}
+            {(status === 'error' || status === 'expired') && (
+              <div className="text-center">
+                <div className="w-20 h-20 rounded-full bg-red-500/20 flex items-center justify-center mx-auto mb-6">
+                  <div className="text-4xl">
+                    {status === 'expired' ? '⏰' : '❌'}
+                  </div>
+                </div>
+                <h1 className="text-3xl font-bold text-white mb-4">
+                  {status === 'expired' ? 'Invitation Expired' : 'Invitation Error'}
+                </h1>
+                <p className="text-slate-400 text-lg mb-8">{message}</p>
+                <button
+                  onClick={() => router.push('/')}
+                  className="px-8 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-semibold transition-colors"
+                >
+                  Go Home
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
-
-      <style jsx>{`
-        @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-      `}</style>
     </div>
   );
 }

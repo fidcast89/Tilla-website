@@ -16,11 +16,10 @@ interface SignupFormData {
 
 export default function SignupPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [formData, setFormData] = useState<SignupFormData>({
     firstName: '',
     lastName: '',
-    email: searchParams.get('email') || '',
+    email: '',
     phone: '',
     password: '',
     country: ''
@@ -28,22 +27,47 @@ export default function SignupPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
+  const [invitationData, setInvitationData] = useState<any>(null);
+  const [isCheckingInvitation, setIsCheckingInvitation] = useState(true);
 
-  // Get invitation context from URL params
-  const businessName = searchParams.get('business') || 'the business';
-  const roleName = searchParams.get('role') || 'team member';
-  const invitationEmail = searchParams.get('email') || '';
-  const invitationToken = searchParams.get('invitation') || '';
+  // Get invitation context from session storage
+  const businessName = invitationData?.businessName || 'the business';
+  const roleName = invitationData?.roleName || 'team member';
+  const invitationEmail = invitationData?.email || '';
+  const invitationToken = invitationData?.token || '';
+  const businessCountry = invitationData?.businessCountry || 'United States';
 
-  // Get business country for prefilling (you can fetch this from API if needed)
+  // Load invitation data from session storage
   useEffect(() => {
-    // TODO: Fetch business country based on invitation
-    // For now, we'll set a default
-    setFormData(prev => ({
-      ...prev,
-      country: 'United States' // This should be fetched from the business data
-    }));
-  }, []);
+    const storedData = sessionStorage.getItem('invitationData');
+    if (storedData) {
+      try {
+        const data = JSON.parse(storedData);
+
+        // Check if data is not too old (1 hour expiration)
+        const oneHour = 60 * 60 * 1000;
+        if (Date.now() - data.timestamp < oneHour) {
+          setInvitationData(data);
+          setFormData(prev => ({
+            ...prev,
+            email: data.email,
+            country: data.businessCountry
+          }));
+          setIsCheckingInvitation(false);
+        } else {
+          // Data expired, redirect to home
+          sessionStorage.removeItem('invitationData');
+          router.push('/');
+        }
+      } catch (error) {
+        console.error('Error parsing invitation data:', error);
+        router.push('/');
+      }
+    } else {
+      // No invitation data, redirect to home
+      router.push('/');
+    }
+  }, [router]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -75,11 +99,15 @@ export default function SignupPage() {
       setError('Password must be at least 8 characters');
       return false;
     }
-    if (!formData.country.trim()) {
-      setError('Country is required');
-      return false;
-    }
     return true;
+  };
+
+  // Check if form is valid for button state
+  const isFormValid = () => {
+    return formData.firstName.trim() &&
+           formData.lastName.trim() &&
+           formData.email.trim() &&
+           formData.password.length >= 8;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -111,8 +139,11 @@ export default function SignupPage() {
         throw new Error(result.error || 'Failed to create account');
       }
 
+      // Clear invitation data from session storage
+      sessionStorage.removeItem('invitationData');
+
       setSuccess(true);
-      
+
       // Redirect after successful signup
       setTimeout(() => {
         router.push('/login?message=Account created successfully. Please sign in.');
@@ -124,6 +155,22 @@ export default function SignupPage() {
       setIsLoading(false);
     }
   };
+
+  // Show loading while checking invitation
+  if (isCheckingInvitation) {
+    return (
+      <div className="relative min-h-screen bg-black overflow-hidden">
+        <FloatingElements />
+        <div className="container max-w-5xl mx-auto px-4 py-16 relative z-10">
+          <div className="flex flex-col items-center justify-center min-h-[80vh] text-center">
+            <div className="w-16 h-16 border-4 border-slate-600 border-t-primary rounded-full animate-spin mb-6"></div>
+            <h1 className="text-2xl font-bold text-white mb-2">Loading Invitation</h1>
+            <p className="text-slate-400">Please wait while we verify your invitation...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (success) {
     return (
@@ -164,7 +211,7 @@ export default function SignupPage() {
           </h1>
           <p className="text-slate-400 text-lg max-w-2xl">
             You've been invited to join <strong className="text-primary">{businessName}</strong> as <strong className="text-primary">{roleName}</strong>!
-            Complete your profile to start managing your business with AI-powered tools.
+            Complete your profile to start managing your business operations.
           </p>
         </div>
 
@@ -294,28 +341,17 @@ export default function SignupPage() {
                     </div>
                     <div className="flex-1">
                       <label htmlFor="country" className="block text-sm font-medium text-slate-300 mb-1">
-                        Country*
+                        Country
                       </label>
-                      <select
+                      <input
+                        type="text"
                         id="country"
-                        name="country"
                         value={formData.country}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none text-white"
-                        required
-                      >
-                        <option value="" disabled>Select your country</option>
-                        <option value="United States">United States</option>
-                        <option value="Canada">Canada</option>
-                        <option value="United Kingdom">United Kingdom</option>
-                        <option value="Australia">Australia</option>
-                        <option value="Germany">Germany</option>
-                        <option value="France">France</option>
-                        <option value="Spain">Spain</option>
-                        <option value="Italy">Italy</option>
-                        <option value="Netherlands">Netherlands</option>
-                        <option value="Other">Other</option>
-                      </select>
+                        disabled
+                        className="w-full px-4 py-3 bg-slate-800/30 border border-slate-700 rounded-lg text-slate-400 cursor-not-allowed"
+                        placeholder="Country"
+                      />
+                      <p className="text-xs text-slate-500 mt-1">Inherited from business location</p>
                     </div>
                   </div>
                 </div>
@@ -354,15 +390,15 @@ export default function SignupPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-end">
                 <button
                   type="submit"
-                  disabled={isLoading}
+                  disabled={isLoading || !isFormValid()}
                   className={`px-6 py-3 rounded-lg flex items-center justify-center gap-2 transition-colors ${
-                    isLoading
+                    isLoading || !isFormValid()
                       ? 'bg-slate-700 text-slate-400 cursor-not-allowed'
                       : 'bg-primary hover:bg-primary/90 text-white'
                   }`}
                 >
                   {isLoading ? 'Creating Account...' : 'Complete Setup & Join Team'}
-                  {!isLoading && <ArrowRight className="w-4 h-4" />}
+                  {!isLoading && isFormValid() && <ArrowRight className="w-4 h-4" />}
                 </button>
               </div>
             </div>
@@ -383,9 +419,9 @@ export default function SignupPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Instant Setup</h3>
+            <h3 className="text-lg font-semibold text-white mb-2">Ready in Minutes</h3>
             <p className="text-slate-400">
-              Get started immediately after completing your profile. No technical knowledge required.
+              Jump straight into your role with everything pre-configured for your business needs.
             </p>
           </div>
           <div className="bg-slate-900/60 backdrop-blur-sm rounded-xl p-5 border border-slate-800">
@@ -405,9 +441,9 @@ export default function SignupPage() {
                 />
               </svg>
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Secure Data</h3>
+            <h3 className="text-lg font-semibold text-white mb-2">Bank-Level Security</h3>
             <p className="text-slate-400">
-              Your business data is encrypted and protected with enterprise-grade security.
+              Your transactions and customer data are protected with the same security banks use.
             </p>
           </div>
           <div className="bg-slate-900/60 backdrop-blur-sm rounded-xl p-5 border border-slate-800">
@@ -427,9 +463,9 @@ export default function SignupPage() {
                 />
               </svg>
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">24/7 Support</h3>
+            <h3 className="text-lg font-semibold text-white mb-2">Always Here to Help</h3>
             <p className="text-slate-400">
-              Get help whenever you need it with our dedicated support team and AI assistant.
+              Real people ready to help you succeed, plus smart tools that learn your business.
             </p>
           </div>
         </div>

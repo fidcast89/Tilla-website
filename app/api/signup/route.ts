@@ -9,7 +9,7 @@ const supabase = createClient(
 
 export async function POST(request: NextRequest) {
   try {
-    const { fullName, email, password, invitationToken } = await request.json();
+    const { fullName, email, password, phone, invitationToken } = await request.json();
 
     console.log('🔍 SIGNUP DEBUG: Received signup request for:', email);
 
@@ -21,10 +21,27 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Get the invitation details first
+    // Get the invitation details with business information
     const { data: invitation, error: invitationError } = await supabase
       .from('user_invitations')
-      .select('*')
+      .select(`
+        *,
+        businesses(
+          id,
+          name,
+          country,
+          currency,
+          timezone,
+          business_type,
+          phone,
+          email,
+          address,
+          city,
+          state,
+          postal_code
+        ),
+        roles(id, name)
+      `)
       .eq('invitation_token', invitationToken)
       .eq('status', 'pending')
       .eq('email', email)
@@ -74,13 +91,16 @@ export async function POST(request: NextRequest) {
     const userId = authData.user.id;
     console.log('🔍 SIGNUP DEBUG: User created with ID:', userId);
 
-    // Create profile in profiles table
+    // Create profile in profiles table with business context
     const { error: profileError } = await supabase
       .from('profiles')
       .insert({
         id: userId,
         full_name: fullName,
         email: email,
+        phone: phone || null,
+        country: invitation.businesses?.country || null,
+        timezone: invitation.businesses?.timezone || null,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString()
       });
@@ -132,7 +152,12 @@ export async function POST(request: NextRequest) {
     return Response.json({
       success: true,
       message: 'Account created successfully',
-      userId: userId
+      userId: userId,
+      business: {
+        name: invitation.businesses?.name,
+        country: invitation.businesses?.country,
+        currency: invitation.businesses?.currency
+      }
     });
 
   } catch (error) {

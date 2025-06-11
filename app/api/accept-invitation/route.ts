@@ -40,10 +40,10 @@ export async function POST(request: NextRequest) {
     }
 
     // Get additional data separately
-    console.log('🔍 API DEBUG: Getting business name...');
+    console.log('🔍 API DEBUG: Getting business details...');
     const { data: business } = await supabase
       .from('businesses')
-      .select('name')
+      .select('name, country, currency')
       .eq('id', invitation.business_id)
       .single();
 
@@ -79,6 +79,8 @@ export async function POST(request: NextRequest) {
       success: true,
       invitation: {
         businessName: business?.name || 'Unknown Business',
+        businessCountry: business?.country || 'United States',
+        businessCurrency: business?.currency || 'USD',
         roleName: role?.name || 'Team Member',
         invitedBy: inviter?.full_name || 'Someone',
         email: invitation.email,
