@@ -64,11 +64,16 @@ export default function InvitePage() {
   }
 
   function handleAccept() {
-    // Redirect to your app download or signup page
+    // Get the invitation token from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get("token");
+
+    // Redirect to signup page with invitation context
     const params = new URLSearchParams({
       business: invitation?.businessName || '',
       role: invitation?.roleName || '',
-      email: invitation?.email || ''
+      email: invitation?.email || '',
+      invitation: token || ''
     });
 
     router.push(`/signup?${params.toString()}`);
