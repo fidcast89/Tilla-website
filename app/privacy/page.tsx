@@ -4,26 +4,26 @@ import { FadeIn } from "@/components/fade-in"
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100">
+    <div className="min-h-screen bg-white text-gray-900">
       <Navbar />
 
       <section className="pt-24 pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <FadeIn>
-              <h1 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+              <h1 className="mb-6 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
                 Privacy Policy
               </h1>
-              <p className="mb-8 text-lg text-gray-300">
-                Last updated: June 15, 2025
+              <p className="mb-8 text-lg text-gray-600">
+                Last updated: December 20, 2024
               </p>
             </FadeIn>
 
-            <div className="prose prose-invert max-w-none">
+            <div className="prose prose-gray max-w-none">
               <FadeIn delay={0.1}>
                 <h2>1. Introduction</h2>
                 <p>
-                  At iHustle, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and website (collectively, the "Service"). Please read this policy carefully to understand our practices regarding your personal data.
+                  At Tilla, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and website (collectively, the "Service"). Please read this policy carefully to understand our practices regarding your personal data.
                 </p>
               </FadeIn>
 

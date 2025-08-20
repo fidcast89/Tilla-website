@@ -4,33 +4,33 @@ import { FadeIn } from "@/components/fade-in"
 
 export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100">
+    <div className="min-h-screen bg-white text-gray-900">
       <Navbar />
 
       <section className="pt-24 pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl">
             <FadeIn>
-              <h1 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+              <h1 className="mb-6 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
                 Terms & Conditions
               </h1>
-              <p className="mb-8 text-lg text-gray-300">
-                Last updated: June 15, 2025
+              <p className="mb-8 text-lg text-gray-600">
+                Last updated: December 20, 2024
               </p>
             </FadeIn>
 
-            <div className="prose prose-invert max-w-none">
+            <div className="prose prose-gray max-w-none">
               <FadeIn delay={0.1}>
                 <h2>1. Introduction</h2>
                 <p>
-                  Welcome to iHustle. These Terms and Conditions govern your use of the iHustle mobile application and website (collectively, the "Service"). By using our Service, you agree to these terms. Please read them carefully.
+                  Welcome to Tilla. These Terms and Conditions govern your use of the Tilla mobile application and website (collectively, the "Service"). By using our Service, you agree to these terms. Please read them carefully.
                 </p>
               </FadeIn>
 
               <FadeIn delay={0.15}>
                 <h2>2. Definitions</h2>
                 <p>
-                  <strong>"Application"</strong> refers to iHustle, the mobile application and web platform.
+                  <strong>"Application"</strong> refers to Tilla, the mobile application and web platform.
                 </p>
                 <p>
                   <strong>"Service"</strong> refers to the Application and all services provided through it.

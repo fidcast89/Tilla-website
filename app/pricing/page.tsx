@@ -32,49 +32,46 @@ export default function PricingPage() {
       },
       {
         title: "Starter",
-        price: "$12",
+        price: "$19",
         description: "For small businesses ready to grow",
         features: [
-          "Everything in Free",
           "Up to 500 products",
-          "2 user accounts",
-          "Customer database",
-          "Credit sales tracking",
-          "Basic reports",
+          "AI product creation",
+          "Advanced analytics",
+          "Inventory management",
           "Email support",
+          "2 user accounts",
         ],
         buttonText: "Get Started",
         popular: false,
       },
       {
         title: "Growth",
-        price: "$29",
-        description: "For growing businesses with advanced needs",
+        price: "$49",
+        description: "Perfect for established businesses",
         features: [
-          "Everything in Starter",
           "Up to 2,000 products",
+          "All Starter features",
+          "Suppliers management",
+          "Income statements",
+          "Multi-branch support",
+          "Priority support",
           "5 user accounts",
-          "Advanced inventory management",
-          "Sales analytics dashboard",
-          "Multi-branch support (2 locations)",
-          "Priority email & chat support",
         ],
         buttonText: "Get Started",
         popular: true,
       },
       {
         title: "Enterprise",
-        price: "$79",
-        description: "For established businesses with multiple locations",
+        price: "Custom",
+        description: "Tailored for large enterprises",
         features: [
-          "Everything in Growth",
           "Unlimited products",
-          "10+ user accounts",
-          "AI-powered features",
-          "Advanced analytics & reporting",
-          "Multi-location support (unlimited)",
-          "Dedicated account manager",
+          "All Growth features",
+          "White-label options",
           "Custom integrations",
+          "Dedicated account manager",
+          "Unlimited users",
         ],
         buttonText: "Contact Us",
         popular: false,
@@ -98,49 +95,46 @@ export default function PricingPage() {
       },
       {
         title: "Starter",
-        price: "$9",
+        price: "$15",
         description: "For small businesses ready to grow",
         features: [
-          "Everything in Free",
           "Up to 500 products",
-          "2 user accounts",
-          "Customer database",
-          "Credit sales tracking",
-          "Basic reports",
+          "AI product creation",
+          "Advanced analytics",
+          "Inventory management",
           "Email support",
+          "2 user accounts",
         ],
         buttonText: "Get Started",
         popular: false,
       },
       {
         title: "Growth",
-        price: "$24",
-        description: "For growing businesses with advanced needs",
+        price: "$39",
+        description: "Perfect for established businesses",
         features: [
-          "Everything in Starter",
           "Up to 2,000 products",
+          "All Starter features",
+          "Suppliers management",
+          "Income statements",
+          "Multi-branch support",
+          "Priority support",
           "5 user accounts",
-          "Advanced inventory management",
-          "Sales analytics dashboard",
-          "Multi-branch support (2 locations)",
-          "Priority email & chat support",
         ],
         buttonText: "Get Started",
         popular: true,
       },
       {
         title: "Enterprise",
-        price: "$65",
-        description: "For established businesses with multiple locations",
+        price: "Custom",
+        description: "Tailored for large enterprises",
         features: [
-          "Everything in Growth",
           "Unlimited products",
-          "10+ user accounts",
-          "AI-powered features",
-          "Advanced analytics & reporting",
-          "Multi-location support (unlimited)",
-          "Dedicated account manager",
+          "All Growth features",
+          "White-label options",
           "Custom integrations",
+          "Dedicated account manager",
+          "Unlimited users",
         ],
         buttonText: "Contact Us",
         popular: false,
@@ -149,33 +143,33 @@ export default function PricingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100">
+    <div className="min-h-screen bg-white text-gray-900">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-gray-900 to-gray-950 pt-24 pb-16">
+      <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white pt-24 pb-16">
         <ElegantShapesBackground />
         <FloatingElements />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center relative z-10">
             <FadeIn>
-              <h1 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-                Simple pricing for your <span className="text-primary">Hustle</span>
+              <h1 className="mb-6 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+                Simple pricing for your <span className="text-primary">business</span>
               </h1>
-              <p className="mb-8 text-lg text-gray-300">
+              <p className="mb-8 text-lg text-gray-600">
                 No hidden fees, no surprises. Just straightforward pricing that makes sense for small businesses.
               </p>
             </FadeIn>
 
             <FadeIn delay={0.1}>
-              <div className="mx-auto mb-8 flex w-fit rounded-full bg-gray-800 p-1">
+              <div className="mx-auto mb-8 flex w-fit rounded-full bg-gray-100 p-1">
                 <button
                   onClick={() => setBillingCycle("monthly")}
                   className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${
                     billingCycle === "monthly"
                       ? "bg-primary text-white"
-                      : "bg-transparent text-gray-400 hover:text-white"
+                      : "bg-transparent text-gray-600 hover:text-gray-900"
                   }`}
                 >
                   Monthly
@@ -185,7 +179,7 @@ export default function PricingPage() {
                   className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${
                     billingCycle === "yearly"
                       ? "bg-primary text-white"
-                      : "bg-transparent text-gray-400 hover:text-white"
+                      : "bg-transparent text-gray-600 hover:text-gray-900"
                   }`}
                 >
                   Yearly <span className="text-xs">(Save 20%)</span>
@@ -216,13 +210,13 @@ export default function PricingPage() {
 
           <div className="mt-16">
             <FadeIn delay={0.4}>
-              <div className="mx-auto max-w-3xl rounded-2xl bg-gray-800 p-8 shadow-sm">
+              <div className="mx-auto max-w-3xl rounded-2xl bg-gray-50 p-8 shadow-sm border border-gray-200">
                 <div className="flex flex-col items-center gap-4 sm:flex-row">
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-white">Need something custom?</h3>
-                    <p className="mt-2 text-gray-300">
+                    <h3 className="text-xl font-semibold text-gray-900">Need something custom?</h3>
+                    <p className="mt-2 text-gray-600">
                       Let's chat about what you need. We're flexible and love helping businesses find the right solution
-                      for their Hustle.
+                      for their needs.
                     </p>
                   </div>
                   <Button size="lg" className="rounded-full bg-primary text-white hover:bg-primary/90">
@@ -236,29 +230,29 @@ export default function PricingPage() {
       </section>
 
       {/* Feature Comparison */}
-      <section className="bg-gray-900 py-24">
+      <section className="bg-gray-50 py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <FadeIn>
-              <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Compare plans in detail
               </h2>
-              <p className="text-lg text-gray-300">
+              <p className="text-lg text-gray-600">
                 Find the perfect plan for your business needs. Start with our free tier and upgrade as you grow.
               </p>
             </FadeIn>
           </div>
 
-          <div className="mt-16 overflow-hidden rounded-xl border border-gray-800">
+          <div className="mt-16 overflow-hidden rounded-xl border border-gray-200">
             <div className="overflow-x-auto">
               <table className="w-full min-w-[800px] border-collapse text-left">
                 <thead>
-                  <tr className="border-b border-gray-800 bg-gray-800/50">
-                    <th className="px-6 py-4 text-sm font-semibold text-white">Features</th>
-                    <th className="px-6 py-4 text-sm font-semibold text-white">Free</th>
-                    <th className="px-6 py-4 text-sm font-semibold text-white">Starter</th>
-                    <th className="px-6 py-4 text-sm font-semibold text-white">Growth</th>
-                    <th className="px-6 py-4 text-sm font-semibold text-white">Enterprise</th>
+                  <tr className="border-b border-gray-200 bg-gray-50">
+                    <th className="px-6 py-4 text-sm font-semibold text-gray-900">Features</th>
+                    <th className="px-6 py-4 text-sm font-semibold text-gray-900">Free</th>
+                    <th className="px-6 py-4 text-sm font-semibold text-gray-900">Starter</th>
+                    <th className="px-6 py-4 text-sm font-semibold text-gray-900">Growth</th>
+                    <th className="px-6 py-4 text-sm font-semibold text-gray-900">Enterprise</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -275,56 +269,56 @@ export default function PricingPage() {
                     { name: "Advanced inventory", free: false, starter: false, growth: true, enterprise: true },
                     { name: "Sales analytics", free: false, starter: false, growth: true, enterprise: true },
                     { name: "Multi-branch support", free: false, starter: false, growth: "2 locations", enterprise: "Unlimited" },
-                    { name: "AI product creation", free: false, starter: false, growth: false, enterprise: true },
-                    { name: "AI insights", free: false, starter: false, growth: false, enterprise: true },
+                    { name: "AI product creation", free: false, starter: true, growth: true, enterprise: true },
+                    { name: "AI insights", free: false, starter: false, growth: true, enterprise: true },
                     { name: "Advanced analytics", free: false, starter: false, growth: false, enterprise: true },
                     { name: "Custom integrations", free: false, starter: false, growth: false, enterprise: true },
                     { name: "Dedicated account manager", free: false, starter: false, growth: false, enterprise: true },
                   ].map((feature, index) => (
                     <tr
                       key={feature.name}
-                      className={`border-b border-gray-800 ${index % 2 === 0 ? "bg-gray-900" : "bg-gray-900/50"}`}
+                      className={`border-b border-gray-200 ${index % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
                     >
-                      <td className="px-6 py-4 text-sm font-medium text-white">{feature.name}</td>
-                      <td className="px-6 py-4 text-sm text-gray-300">
+                      <td className="px-6 py-4 text-sm font-medium text-gray-900">{feature.name}</td>
+                      <td className="px-6 py-4 text-sm text-gray-600">
                         {typeof feature.free === "boolean" ? (
                           feature.free ? (
                             <Check className="h-5 w-5 text-green-500" />
                           ) : (
-                            <span className="text-gray-500">—</span>
+                            <span className="text-gray-400">—</span>
                           )
                         ) : (
                           feature.free
                         )}
                       </td>
-                      <td className="px-6 py-4 text-sm text-gray-300">
+                      <td className="px-6 py-4 text-sm text-gray-600">
                         {typeof feature.starter === "boolean" ? (
                           feature.starter ? (
                             <Check className="h-5 w-5 text-green-500" />
                           ) : (
-                            <span className="text-gray-500">—</span>
+                            <span className="text-gray-400">—</span>
                           )
                         ) : (
                           feature.starter
                         )}
                       </td>
-                      <td className="px-6 py-4 text-sm text-gray-300">
+                      <td className="px-6 py-4 text-sm text-gray-600">
                         {typeof feature.growth === "boolean" ? (
                           feature.growth ? (
                             <Check className="h-5 w-5 text-green-500" />
                           ) : (
-                            <span className="text-gray-500">—</span>
+                            <span className="text-gray-400">—</span>
                           )
                         ) : (
                           feature.growth
                         )}
                       </td>
-                      <td className="px-6 py-4 text-sm text-gray-300">
+                      <td className="px-6 py-4 text-sm text-gray-600">
                         {typeof feature.enterprise === "boolean" ? (
                           feature.enterprise ? (
                             <Check className="h-5 w-5 text-green-500" />
                           ) : (
-                            <span className="text-gray-500">—</span>
+                            <span className="text-gray-400">—</span>
                           )
                         ) : (
                           feature.enterprise
@@ -340,25 +334,25 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-gray-900 py-24">
+      <section className="bg-white py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <FadeIn>
               <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
                 FAQ
               </span>
-              <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Questions? We've got answers
               </h2>
-              <p className="text-lg text-gray-300">Here's what people usually want to know about our pricing.</p>
+              <p className="text-lg text-gray-600">Here's what people usually want to know about our pricing.</p>
             </FadeIn>
           </div>
 
           <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2">
             <FadeIn delay={0.1}>
               <div>
-                <h3 className="text-xl font-semibold text-white">Do you offer any discounts?</h3>
-                <p className="mt-2 text-gray-300">
+                <h3 className="text-xl font-semibold text-gray-900">Do you offer any discounts?</h3>
+                <p className="mt-2 text-gray-600">
                   Yes! We offer a 20% discount when you pay annually. We also have special pricing for non-profits and educational institutions.
                 </p>
               </div>
@@ -366,8 +360,8 @@ export default function PricingPage() {
 
             <FadeIn delay={0.2}>
               <div>
-                <h3 className="text-xl font-semibold text-white">Can I change plans later?</h3>
-                <p className="mt-2 text-gray-300">
+                <h3 className="text-xl font-semibold text-gray-900">Can I change plans later?</h3>
+                <p className="mt-2 text-gray-600">
                   Absolutely. You can upgrade, downgrade, or cancel your plan at any time. If you upgrade, you'll be prorated for the remainder of your billing cycle.
                 </p>
               </div>
@@ -375,8 +369,8 @@ export default function PricingPage() {
 
             <FadeIn delay={0.3}>
               <div>
-                <h3 className="text-xl font-semibold text-white">Is the Free tier really free forever?</h3>
-                <p className="mt-2 text-gray-300">
+                <h3 className="text-xl font-semibold text-gray-900">Is the Free tier really free forever?</h3>
+                <p className="mt-2 text-gray-600">
                   Yes! Our Free tier is completely free with no time limits. You can use it for as long as you want with the included features. Upgrade to a paid plan when you need more advanced features.
                 </p>
               </div>
@@ -384,9 +378,9 @@ export default function PricingPage() {
 
             <FadeIn delay={0.4}>
               <div>
-                <h3 className="text-xl font-semibold text-white">Is iHustle suitable for emerging markets?</h3>
-                <p className="mt-2 text-gray-300">
-                  Absolutely! iHustle is designed for diverse markets worldwide, with features like mobile money integration, offline functionality, and support for local currencies and languages.
+                <h3 className="text-xl font-semibold text-gray-900">Is Tilla suitable for emerging markets?</h3>
+                <p className="mt-2 text-gray-600">
+                  Absolutely! Tilla is designed for diverse markets worldwide, with features like mobile money integration, offline functionality, and support for local currencies and languages.
                 </p>
               </div>
             </FadeIn>

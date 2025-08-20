@@ -29,11 +29,11 @@ export default function Home() {
   const phoneScale = useTransform(scrollYProgress, [0, 0.1], [1, 1.05])
 
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100">
+    <div className="min-h-screen bg-white text-gray-900">
       <Navbar />
 
       {/* Hero Section - With geometric background */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-gray-900 to-gray-950 pt-20 pb-32">
+      <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white pt-20 pb-32">
         <ElegantShapesBackground />
         <FloatingElements />
 
@@ -64,10 +64,10 @@ export default function Home() {
       </section>
 
       {/* AI Features Section */}
-      <section className="relative bg-gray-900 py-24">
+      <section className="relative bg-gray-50 py-24">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-[20%] right-[10%] h-[300px] w-[300px] rounded-full bg-primary/10 blur-3xl"></div>
-          <div className="absolute bottom-[10%] left-[5%] h-[200px] w-[200px] rounded-full bg-blue-500/10 blur-3xl"></div>
+          <div className="absolute top-[20%] right-[10%] h-[300px] w-[300px] rounded-full bg-primary/5 blur-3xl"></div>
+          <div className="absolute bottom-[10%] left-[5%] h-[200px] w-[200px] rounded-full bg-blue-500/5 blur-3xl"></div>
         </div>
 
         <div className="container relative mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
@@ -76,11 +76,11 @@ export default function Home() {
               <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
                 AI Superpowers
               </span>
-              <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Let AI do the heavy lifting
               </h2>
-              <p className="text-lg text-gray-300">
-                We've packed iHustle with AI features that actually make your life easier. No gimmicks, just practical
+              <p className="text-lg text-gray-600">
+                We've packed Tilla with AI features that actually make your life easier. No gimmicks, just practical
                 magic.
               </p>
             </FadeIn>
@@ -96,36 +96,36 @@ export default function Home() {
             />
             <FeatureCard
               icon={<Sparkles className="h-6 w-6 text-primary" />}
-              title="Smart Insights"
-              description="'Hey, you're running low on those shirts that sell like crazy on Thursdays.' AI that actually helps."
+              title="Smart Analytics Dashboard"
+              description="Real-time insights into your sales, inventory, and customer behavior with AI-powered recommendations."
               delay={0.2}
               hoverEffect="scale"
             />
             <FeatureCard
               icon={<MessageSquare className="h-6 w-6 text-primary" />}
-              title="AI Sales Assistant"
-              description="Get product recommendations, answer customer questions, and close more sales with your AI sidekick."
+              title="Multi-Branch Management"
+              description="Manage multiple locations from one app with centralized inventory, sales tracking, and reporting."
               delay={0.3}
               hoverEffect="scale"
             />
             <FeatureCard
               icon={<Share2 className="h-6 w-6 text-primary" />}
-              title="Social Media Magic"
-              description="Turn inventory into Instagram-ready posts with AI-generated captions and hashtags that actually work."
+              title="Social Media Integration"
+              description="Connect your social accounts and create posts directly from your product catalog with AI-generated content."
               delay={0.4}
               hoverEffect="scale"
             />
             <FeatureCard
               icon={<LineChart className="h-6 w-6 text-primary" />}
-              title="Predictive Analytics"
-              description="'You should stock up on these items before next month.' Predictions that help you plan ahead."
+              title="Advanced Reporting"
+              description="Income statements, expense tracking, and financial reports that help you understand your business performance."
               delay={0.5}
               hoverEffect="scale"
             />
             <FeatureCard
               icon={<CreditCard className="h-6 w-6 text-primary" />}
-              title="Smart Credit Management"
-              description="AI helps you decide which customers are good candidates for credit and reminds them to pay (so you don't have to)."
+              title="Credit Sales Management"
+              description="Track customer credit, manage payment schedules, and get automated reminders for outstanding balances."
               delay={0.6}
               hoverEffect="scale"
             />
@@ -134,18 +134,18 @@ export default function Home() {
       </section>
 
       {/* How It Works Section */}
-      <section className="bg-gray-950 py-24">
+      <section className="bg-white py-24">
         <div className="container mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <FadeIn>
               <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
                 How It Works
               </span>
-              <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Simple enough for anyone to use
               </h2>
-              <p className="text-lg text-gray-300">
-                No tech degree required. If you can use a smartphone, you can use iHustle.
+              <p className="text-lg text-gray-600">
+                No tech degree required. If you can use a smartphone, you can use Tilla.
               </p>
             </FadeIn>
           </div>
@@ -160,8 +160,8 @@ export default function Home() {
                         1
                       </div>
                       <div>
-                        <h3 className="mb-2 text-xl font-semibold text-white">Snap photos of your products</h3>
-                        <p className="text-gray-300">
+                        <h3 className="mb-2 text-xl font-semibold text-gray-900">Snap photos of your products</h3>
+                        <p className="text-gray-600">
                           Take a few pics with your phone, and our AI will do the rest - identifying items, creating
                           descriptions, and suggesting prices.
                         </p>
@@ -175,10 +175,10 @@ export default function Home() {
                         2
                       </div>
                       <div>
-                        <h3 className="mb-2 text-xl font-semibold text-white">Sell with a tap</h3>
-                        <p className="text-gray-300">
+                        <h3 className="mb-2 text-xl font-semibold text-gray-900">Sell with a tap</h3>
+                        <p className="text-gray-600">
                           Our super simple checkout process makes selling quick and painless. Cash, card, mobile money -
-                          whatever works for your Hustle.
+                          whatever works for your business.
                         </p>
                       </div>
                     </div>
@@ -190,8 +190,8 @@ export default function Home() {
                         3
                       </div>
                       <div>
-                        <h3 className="mb-2 text-xl font-semibold text-white">Keep your customers coming back</h3>
-                        <p className="text-gray-300">
+                        <h3 className="mb-2 text-xl font-semibold text-gray-900">Keep your customers coming back</h3>
+                        <p className="text-gray-600">
                           Track what your customers love, offer them credit when it makes sense, and use AI to keep them
                           happy and spending.
                         </p>
@@ -205,9 +205,9 @@ export default function Home() {
                         4
                       </div>
                       <div>
-                        <h3 className="mb-2 text-xl font-semibold text-white">Get smarter every day</h3>
-                        <p className="text-gray-300">
-                          Our AI learns what works for your Hustle and gives you tips that actually help you sell more
+                        <h3 className="mb-2 text-xl font-semibold text-gray-900">Get smarter every day</h3>
+                        <p className="text-gray-600">
+                          Our AI learns what works for your business and gives you tips that actually help you sell more
                           and waste less.
                         </p>
                       </div>
@@ -227,17 +227,17 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="bg-gray-900 py-24">
+      <section className="bg-gray-50 py-24">
         <div className="container mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <FadeIn>
               <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
                 Early Adopters Love Us
               </span>
-              <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Don't just take our word for it
               </h2>
-              <p className="text-lg text-gray-300">Here's what our beta testers have to say about iHustle.</p>
+              <p className="text-lg text-gray-600">Here's what our beta testers have to say about Tilla.</p>
             </FadeIn>
           </div>
 
@@ -251,7 +251,7 @@ export default function Home() {
               delay={0.1}
             />
             <TestimonialCard
-              quote="The credit sales feature is a game-changer for my Hustle. My customers love the flexibility, and the AI reminders mean I don't have to chase payments."
+              quote="The credit sales feature is a game-changer for my business. My customers love the flexibility, and the AI reminders mean I don't have to chase payments."
               author="Michael O."
               role="Electronics Retailer"
               avatar="/placeholder.svg?height=48&width=48"
@@ -259,7 +259,7 @@ export default function Home() {
               delay={0.2}
             />
             <TestimonialCard
-              quote="I'm not tech-savvy at all, but iHustle is actually fun to use! The AI suggestions have helped me stock the right products at the right time."
+              quote="I'm not tech-savvy at all, but Tilla is actually fun to use! The AI suggestions have helped me stock the right products at the right time."
               author="Priya M."
               role="Grocery Store Owner"
               avatar="/placeholder.svg?height=48&width=48"
@@ -271,17 +271,17 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section className="bg-gray-950 py-24">
+      <section className="bg-white py-24">
         <div className="container mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <FadeIn>
               <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
                 Pricing
               </span>
-              <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Simple pricing that grows with your Hustle
+              <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Simple pricing that grows with your business
               </h2>
-              <p className="text-lg text-gray-300">
+              <p className="text-lg text-gray-600">
                 No hidden fees, no surprises. Just straightforward pricing that makes sense for small businesses.
               </p>
             </FadeIn>
@@ -305,14 +305,15 @@ export default function Home() {
             />
             <PricingCard
               title="Starter"
-              price="$12"
+              price="$19"
               description="For small businesses ready to grow"
               features={[
                 "Up to 500 products",
+                "AI product creation",
+                "Advanced analytics",
+                "Inventory management",
+                "Email support",
                 "2 user accounts",
-                "Customer database",
-                "Credit sales tracking",
-                "Basic reports",
               ]}
               buttonText="Get Started"
               popular={false}
@@ -320,14 +321,16 @@ export default function Home() {
             />
             <PricingCard
               title="Growth"
-              price="$29"
-              description="For growing businesses with advanced needs"
+              price="$49"
+              description="Perfect for established businesses"
               features={[
                 "Up to 2,000 products",
+                "All Starter features",
+                "Suppliers management",
+                "Income statements",
+                "Multi-branch support",
+                "Priority support",
                 "5 user accounts",
-                "Advanced inventory",
-                "Sales analytics",
-                "Multi-branch (2 locations)",
               ]}
               buttonText="Get Started"
               popular={true}
@@ -335,14 +338,15 @@ export default function Home() {
             />
             <PricingCard
               title="Enterprise"
-              price="$79"
-              description="For established businesses with multiple locations"
+              price="Custom"
+              description="Tailored for large enterprises"
               features={[
                 "Unlimited products",
-                "10+ user accounts",
-                "AI-powered features",
-                "Advanced analytics",
-                "Unlimited locations",
+                "All Growth features",
+                "White-label options",
+                "Custom integrations",
+                "Dedicated account manager",
+                "Unlimited users",
               ]}
               buttonText="Contact Sales"
               popular={false}
@@ -352,13 +356,13 @@ export default function Home() {
 
           <div className="mt-16">
             <FadeIn delay={0.4}>
-              <div className="mx-auto max-w-3xl rounded-2xl bg-gray-800 p-8 shadow-sm">
+              <div className="mx-auto max-w-3xl rounded-2xl bg-gray-50 p-8 shadow-sm border border-gray-200">
                 <div className="flex flex-col items-center gap-4 sm:flex-row">
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-white">Need something custom?</h3>
-                    <p className="mt-2 text-gray-300">
+                    <h3 className="text-xl font-semibold text-gray-900">Need something custom?</h3>
+                    <p className="mt-2 text-gray-600">
                       Let's chat about what you need. We're flexible and love helping businesses find the right solution
-                      for their Hustle.
+                      for their needs.
                     </p>
                   </div>
                   <Button size="lg" className="rounded-full bg-primary text-white hover:bg-primary/90">
@@ -377,7 +381,7 @@ export default function Home() {
           <div className="mx-auto max-w-4xl text-center">
             <FadeIn>
               <h2 className="mb-6 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Ready to supercharge your Hustle?
+                Ready to supercharge your business?
               </h2>
               <p className="mb-8 text-lg text-white/80">
                 Join our growing community of smart retailers who are using AI to work smarter, not harder.
@@ -386,7 +390,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   className="rounded-full bg-white text-primary hover:bg-white/90"
-                  onClick={() => window.location.href = 'mailto:ihustlebiz24@gmail.com?subject=iHustle%20Inquiry'}
+                  onClick={() => window.location.href = 'mailto:support@tillapos.com?subject=Tilla%20Inquiry'}
                 >
                   Contact Us <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -394,7 +398,7 @@ export default function Home() {
                   size="lg"
                   variant="outline"
                   className="rounded-full border-white text-white hover:bg-white/10"
-                  onClick={() => window.location.href = 'mailto:ihustlebiz24@gmail.com?subject=iHustle%20Demo%20Request'}
+                  onClick={() => window.location.href = 'mailto:support@tillapos.com?subject=Tilla%20Demo%20Request'}
                 >
                   See a demo
                 </Button>
@@ -405,26 +409,26 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-gray-900 py-24">
+      <section className="bg-gray-50 py-24">
         <div className="container mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <FadeIn>
               <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
                 FAQ
               </span>
-              <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Questions? We've got answers
               </h2>
-              <p className="text-lg text-gray-300">Here's what people usually want to know.</p>
+              <p className="text-lg text-gray-600">Here's what people usually want to know.</p>
             </FadeIn>
           </div>
 
           <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2">
             <FadeIn delay={0.1}>
               <div>
-                <h3 className="text-xl font-semibold text-white">Do I need to be tech-savvy to use iHustle?</h3>
-                <p className="mt-2 text-gray-300">
-                  Not at all! If you can use WhatsApp, you can use iHustle. We've designed it to be super intuitive, and
+                <h3 className="text-xl font-semibold text-gray-900">Do I need to be tech-savvy to use Tilla?</h3>
+                <p className="mt-2 text-gray-600">
+                  Not at all! If you can use WhatsApp, you can use Tilla. We've designed it to be super intuitive, and
                   our AI features actually make technology work for you, not the other way around.
                 </p>
               </div>
@@ -432,9 +436,9 @@ export default function Home() {
 
             <FadeIn delay={0.2}>
               <div>
-                <h3 className="text-xl font-semibold text-white">Can I use iHustle when my internet is down?</h3>
-                <p className="mt-2 text-gray-300">
-                  We know connectivity can be an issue. iHustle works offline and automatically syncs when you're back
+                <h3 className="text-xl font-semibold text-gray-900">Can I use Tilla when my internet is down?</h3>
+                <p className="mt-2 text-gray-600">
+                  We know connectivity can be an issue. Tilla works offline and automatically syncs when you're back
                   online. No more lost sales due to network problems.
                 </p>
               </div>
@@ -442,8 +446,8 @@ export default function Home() {
 
             <FadeIn delay={0.3}>
               <div>
-                <h3 className="text-xl font-semibold text-white">How does the AI product creation actually work?</h3>
-                <p className="mt-2 text-gray-300">
+                <h3 className="text-xl font-semibold text-gray-900">How does the AI product creation actually work?</h3>
+                <p className="mt-2 text-gray-600">
                   It's like magic, but real! Just snap a few photos of your product, and our AI identifies what it is,
                   writes a description, suggests categories, and even recommends pricing based on similar items. What
                   used to take 10 minutes now takes 10 seconds.
@@ -453,8 +457,8 @@ export default function Home() {
 
             <FadeIn delay={0.4}>
               <div>
-                <h3 className="text-xl font-semibold text-white">Is my data safe with you?</h3>
-                <p className="mt-2 text-gray-300">
+                <h3 className="text-xl font-semibold text-gray-900">Is my data safe with you?</h3>
+                <p className="mt-2 text-gray-600">
                   100%. We take security seriously. Your data is encrypted, backed up, and never shared with third
                   parties. Plus, you always maintain ownership of your business information.
                 </p>
@@ -463,8 +467,8 @@ export default function Home() {
 
             <FadeIn delay={0.5}>
               <div>
-                <h3 className="text-xl font-semibold text-white">Can iHustle help me sell online too?</h3>
-                <p className="mt-2 text-gray-300">
+                <h3 className="text-xl font-semibold text-gray-900">Can Tilla help me sell online too?</h3>
+                <p className="mt-2 text-gray-600">
                   Yes! We make it super easy to post your products on social media with AI-generated descriptions and
                   hashtags. Plus, we're working on integrations with popular e-commerce platforms.
                 </p>
@@ -473,8 +477,8 @@ export default function Home() {
 
             <FadeIn delay={0.6}>
               <div>
-                <h3 className="text-xl font-semibold text-white">What kind of support do you offer?</h3>
-                <p className="mt-2 text-gray-300">
+                <h3 className="text-xl font-semibold text-gray-900">What kind of support do you offer?</h3>
+                <p className="mt-2 text-gray-600">
                   We're here for you! All plans include email support, with faster response times for higher tiers. We
                   also have video tutorials, a knowledge base, and an active community of users helping each other out.
                 </p>
@@ -483,9 +487,9 @@ export default function Home() {
 
             <FadeIn delay={0.7}>
               <div>
-                <h3 className="text-xl font-semibold text-white">Is iHustle suitable for emerging markets?</h3>
-                <p className="mt-2 text-gray-300">
-                  Absolutely! iHustle is designed for diverse markets worldwide, with features like mobile money integration,
+                <h3 className="text-xl font-semibold text-gray-900">Is Tilla suitable for emerging markets?</h3>
+                <p className="mt-2 text-gray-600">
+                  Absolutely! Tilla is designed for diverse markets worldwide, with features like mobile money integration,
                   offline functionality, and support for local currencies and languages.
                 </p>
               </div>
@@ -493,10 +497,10 @@ export default function Home() {
 
             <FadeIn delay={0.8}>
               <div>
-                <h3 className="text-xl font-semibold text-white">Do you offer implementation support?</h3>
-                <p className="mt-2 text-gray-300">
+                <h3 className="text-xl font-semibold text-gray-900">Do you offer implementation support?</h3>
+                <p className="mt-2 text-gray-600">
                   Yes! We provide comprehensive onboarding and implementation support to help you get started. Our team will
-                  guide you through the setup process and ensure you're making the most of iHustle.
+                  guide you through the setup process and ensure you're making the most of Tilla.
                 </p>
               </div>
             </FadeIn>
@@ -505,7 +509,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="bg-gray-950 py-24">
+      <section className="bg-white py-24">
         <div className="container mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-primary to-blue-600 p-12 shadow-xl">
             <div className="text-center">
@@ -514,13 +518,13 @@ export default function Home() {
                   Ready to transform your business?
                 </h2>
                 <p className="mb-8 text-lg text-white/80">
-                  Get in touch to see how AI can transform your Hustle.
+                  Get in touch to see how AI can transform your business.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
                   <Button
                     size="lg"
                     className="rounded-full bg-white text-primary hover:bg-white/90"
-                    onClick={() => window.location.href = 'mailto:ihustlebiz24@gmail.com?subject=iHustle%20Inquiry'}
+                    onClick={() => window.location.href = 'mailto:support@tillapos.com?subject=Tilla%20Inquiry'}
                   >
                     Contact Us <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -528,7 +532,7 @@ export default function Home() {
                     size="lg"
                     variant="outline"
                     className="rounded-full border-white text-white hover:bg-white/10"
-                    onClick={() => window.location.href = 'mailto:ihustlebiz24@gmail.com?subject=iHustle%20Demo%20Request'}
+                    onClick={() => window.location.href = 'mailto:support@tillapos.com?subject=Tilla%20Demo%20Request'}
                   >
                     Schedule a demo
                   </Button>

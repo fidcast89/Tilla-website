@@ -3,130 +3,130 @@ import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="bg-gray-900 py-12 text-gray-300">
+    <footer className="bg-gray-50 py-12 text-gray-600 border-t border-gray-200">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <Link href="/" className="flex items-center">
-              <span className="text-xl font-bold text-white">
-                <span className="text-primary">i</span>Hustle
+              <span className="text-xl font-bold text-gray-900">
+                <span className="text-primary">T</span>illa
               </span>
             </Link>
-            <p className="mt-4 text-sm text-gray-400">
-              The AI-powered business tool built for small businesses that want to work smarter, not harder.
+            <p className="mt-4 text-sm text-gray-500">
+              The AI-powered POS and eCommerce platform built for small businesses that want to work smarter, not harder.
             </p>
             <div className="mt-6 flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a href="#" className="text-gray-500 hover:text-gray-900">
                 <span className="sr-only">Facebook</span>
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a href="#" className="text-gray-500 hover:text-gray-900">
                 <span className="sr-only">Instagram</span>
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a href="#" className="text-gray-500 hover:text-gray-900">
                 <span className="sr-only">Twitter</span>
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a href="#" className="text-gray-500 hover:text-gray-900">
                 <span className="sr-only">LinkedIn</span>
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
           </div>
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">Product</h3>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-900">Product</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/features" className="text-sm hover:text-white">
+                <Link href="/features" className="text-sm hover:text-gray-900">
                   Features
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="text-sm hover:text-white">
+                <Link href="/pricing" className="text-sm hover:text-gray-900">
                   Pricing
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm hover:text-white">
+                <Link href="#" className="text-sm hover:text-gray-900">
                   Integrations
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm hover:text-white">
+                <Link href="#" className="text-sm hover:text-gray-900">
                   Changelog
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">Resources</h3>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-900">Resources</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="text-sm hover:text-white">
+                <Link href="#" className="text-sm hover:text-gray-900">
                   Documentation
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm hover:text-white">
+                <Link href="#" className="text-sm hover:text-gray-900">
                   Tutorials
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-sm hover:text-white">
+                <Link href="/terms" className="text-sm hover:text-gray-900">
                   Terms & Conditions
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-sm hover:text-white">
+                <Link href="/privacy" className="text-sm hover:text-gray-900">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm hover:text-white">
+                <Link href="#" className="text-sm hover:text-gray-900">
                   Community
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">Company</h3>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-900">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="text-sm hover:text-white">
+                <Link href="#" className="text-sm hover:text-gray-900">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-sm hover:text-white">
+                <Link href="/contact" className="text-sm hover:text-gray-900">
                   Contact
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm hover:text-white">
+                <Link href="#" className="text-sm hover:text-gray-900">
                   Careers
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm hover:text-white">
+                <Link href="#" className="text-sm hover:text-gray-900">
                   Partners
                 </Link>
               </li>
             </ul>
           </div>
         </div>
-        <div className="mt-12 border-t border-gray-800 pt-8">
-          <p className="text-center text-xs text-gray-400">
-            &copy; {new Date().getFullYear()} iHustle. All rights reserved.
+        <div className="mt-12 border-t border-gray-200 pt-8">
+          <p className="text-center text-xs text-gray-500">
+            &copy; {new Date().getFullYear()} Tilla. All rights reserved.
           </p>
           <div className="mt-4 flex justify-center space-x-6">
-            <Link href="/terms" className="text-xs text-gray-400 hover:text-white">
+            <Link href="/terms" className="text-xs text-gray-500 hover:text-gray-900">
               Terms of Service
             </Link>
-            <Link href="/privacy" className="text-xs text-gray-400 hover:text-white">
+            <Link href="/privacy" className="text-xs text-gray-500 hover:text-gray-900">
               Privacy Policy
             </Link>
-            <Link href="/security" className="text-xs text-gray-400 hover:text-white">
+            <Link href="/security" className="text-xs text-gray-500 hover:text-gray-900">
               Security
             </Link>
           </div>

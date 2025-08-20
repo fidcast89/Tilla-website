@@ -7,10 +7,10 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "iHustle - One App, Your Complete Business Solution",
+  title: "Tilla - AI-Powered POS & eCommerce App",
   description:
-    "Stop juggling multiple apps and paper records. iHustle brings everything together - sales, inventory, customers, analytics - in one simple, powerful mobile app.",
-  metadataBase: new URL("https://www.ihustlebiz.com"),
+    "Transform your business with Tilla's AI-powered POS and eCommerce platform. Manage sales, inventory, customers, and analytics in one simple, powerful mobile app.",
+  metadataBase: new URL("https://www.tillapos.com"),
   generator: "v0.dev",
 }
 
@@ -20,9 +20,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
+    <html lang="en" suppressHydrationWarning className="light">
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} forcedTheme="dark">
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} forcedTheme="light">
           {children}
         </ThemeProvider>
       </body>

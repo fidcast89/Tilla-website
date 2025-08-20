@@ -13,22 +13,22 @@ import { BusinessInsightsMockup } from "@/components/feature-mockups/business-in
 
 export default function FeaturesPage() {
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100">
+    <div className="min-h-screen bg-white text-gray-900">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-gray-900 to-gray-950 pt-24 pb-16">
+      <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white pt-24 pb-16">
         <ElegantShapesBackground />
         <FloatingElements />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center relative z-10">
             <FadeIn>
-              <h1 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-                Features that make your <span className="text-primary">Hustle</span> smarter
+              <h1 className="mb-6 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+                Features that make your <span className="text-primary">business</span> smarter
               </h1>
-              <p className="mb-8 text-lg text-gray-300">
-                We've packed iHustle with powerful features that help small businesses work smarter, not harder.
+              <p className="mb-8 text-lg text-gray-600">
+                We've packed Tilla with powerful features that help small businesses work smarter, not harder.
                 Here's how we're different.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
@@ -38,7 +38,7 @@ export default function FeaturesPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-full border-gray-700 text-gray-300 hover:bg-gray-800 hover:text-white"
+                  className="rounded-full border-gray-300 text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                 >
                   See a demo
                 </Button>
@@ -58,10 +58,10 @@ export default function FeaturesPage() {
                 <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
                   AI-Powered Inventory
                 </span>
-                <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                   Add products in seconds, not minutes
                 </h2>
-                <p className="mb-6 text-lg text-gray-300">
+                <p className="mb-6 text-lg text-gray-600">
                   Just snap a photo and our AI does the rest. It identifies your product, writes a description, suggests
                   categories, and even recommends pricing based on similar items in your area.
                 </p>
@@ -109,10 +109,10 @@ export default function FeaturesPage() {
                 <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
                   Smart Sales
                 </span>
-                <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                   Sell anywhere, anytime, even offline
                 </h2>
-                <p className="mb-6 text-lg text-gray-300">
+                <p className="mb-6 text-lg text-gray-600">
                   Our mobile-first app works even when your internet doesn't. Sell in your store, at markets, or on the
                   go, and everything syncs automatically when you're back online.
                 </p>
@@ -144,10 +144,10 @@ export default function FeaturesPage() {
                 <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
                   Customer Relationships
                 </span>
-                <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                   Build loyal customers with smart credit
                 </h2>
-                <p className="mb-6 text-lg text-gray-300">
+                <p className="mb-6 text-lg text-gray-600">
                   Offer credit to your best customers without the headache. Our AI helps you decide who's a good
                   candidate and automatically sends friendly reminders when payments are due.
                 </p>
@@ -195,10 +195,10 @@ export default function FeaturesPage() {
                 <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
                   Business Insights
                 </span>
-                <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                   Insights that actually help you grow
                 </h2>
-                <p className="mb-6 text-lg text-gray-300">
+                <p className="mb-6 text-lg text-gray-600">
                   No more guessing what's working. Our AI analyzes your sales data and gives you actionable insights in
                   plain language, not complicated charts and graphs.
                 </p>
@@ -226,18 +226,18 @@ export default function FeaturesPage() {
       </section>
 
       {/* Feature Grid */}
-      <section className="bg-gray-900 py-24">
+      <section className="bg-gray-50 py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <FadeIn>
               <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
                 And Much More
               </span>
-              <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Everything you need to run your business
               </h2>
-              <p className="text-lg text-gray-300">
-                iHustle is packed with features designed specifically for small businesses like yours.
+              <p className="text-lg text-gray-600">
+                Tilla is packed with features designed specifically for small businesses like yours.
               </p>
             </FadeIn>
           </div>
@@ -250,16 +250,16 @@ export default function FeaturesPage() {
                   "Turn inventory into Instagram-ready posts with AI-generated captions and hashtags that actually work.",
               },
               {
-                title: "Multi-language Support",
-                description: "Run your business in your language. iHustle supports multiple languages and currencies.",
+                title: "Multi-Branch Support",
+                description: "Manage multiple business locations from one app with centralized inventory and reporting.",
               },
               {
                 title: "Supplier Management",
                 description: "Track your suppliers, manage orders, and get notified when it's time to restock.",
               },
               {
-                title: "Employee Management",
-                description: "Add team members with custom permissions and track their sales performance.",
+                title: "User Management",
+                description: "Add team members with role-based permissions and track their sales performance.",
               },
               {
                 title: "Receipt Customization",
@@ -274,18 +274,18 @@ export default function FeaturesPage() {
                 description: "Keep selling even when the internet is down. Everything syncs when you're back online.",
               },
               {
-                title: "Customer Feedback",
-                description: "Collect and analyze customer feedback to improve your products and service.",
+                title: "Financial Reports",
+                description: "Generate income statements, expense reports, and financial summaries for your business.",
               },
               {
-                title: "Integrations",
-                description: "Connect with popular accounting, e-commerce, and payment processing tools.",
+                title: "Mobile Money Support",
+                description: "Accept payments through popular mobile money services in addition to cash and cards.",
               },
             ].map((feature, index) => (
               <FadeIn key={index} delay={index * 0.1}>
-                <div className="rounded-xl bg-gray-800 p-6 shadow-sm">
-                  <h3 className="mb-3 text-xl font-semibold text-white">{feature.title}</h3>
-                  <p className="text-gray-300">{feature.description}</p>
+                <div className="rounded-xl bg-white p-6 shadow-sm border border-gray-200">
+                  <h3 className="mb-3 text-xl font-semibold text-gray-900">{feature.title}</h3>
+                  <p className="text-gray-600">{feature.description}</p>
                 </div>
               </FadeIn>
             ))}
@@ -302,7 +302,7 @@ export default function FeaturesPage() {
                 Ready to transform your business?
               </h2>
               <p className="mb-8 text-lg text-white/80">
-                Join thousands of small businesses using iHustle to work smarter, not harder.
+                Join thousands of small businesses using Tilla to work smarter, not harder.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button size="lg" className="rounded-full bg-white text-primary hover:bg-white/90">

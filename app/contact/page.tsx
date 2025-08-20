@@ -15,11 +15,11 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100">
+    <div className="min-h-screen bg-white text-gray-900">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-gray-900 to-gray-950 pt-32 pb-20">
+      <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white pt-32 pb-20">
         <FloatingElements />
 
         <div className="container mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
@@ -28,10 +28,10 @@ export default function ContactPage() {
               <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
                 Contact Us
               </span>
-              <h1 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-                Let's talk about your <span className="text-primary">Hustle</span>
+              <h1 className="mb-6 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+                Let's talk about your <span className="text-primary">business</span>
               </h1>
-              <p className="text-lg text-gray-300">
+              <p className="text-lg text-gray-600">
                 Have questions? Want to see a demo? Our team is here to help you find the right solution for your
                 business.
               </p>
@@ -41,13 +41,13 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="bg-gray-900 py-24">
+      <section className="bg-gray-50 py-24">
         <div className="container mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
             <div>
               <FadeIn>
-                <h2 className="mb-6 text-3xl font-bold text-white">Get in touch</h2>
-                <p className="mb-8 text-gray-300">
+                <h2 className="mb-6 text-3xl font-bold text-gray-900">Get in touch</h2>
+                <p className="mb-8 text-gray-600">
                   Fill out the form and our team will get back to you within 24 hours. We're excited to hear about your
                   business and how we can help.
                 </p>
@@ -58,10 +58,10 @@ export default function ContactPage() {
                       <Mail className="h-5 w-5 text-primary" />
                     </div>
                     <div className="ml-4">
-                      <h3 className="text-lg font-medium text-white">Email</h3>
-                      <p className="mt-1 text-gray-300">
-                        <a href="mailto:ihustlebiz24@gmail.com" className="hover:text-primary">
-                          ihustlebiz24@gmail.com
+                      <h3 className="text-lg font-medium text-gray-900">Email</h3>
+                      <p className="mt-1 text-gray-600">
+                        <a href="mailto:support@tillapos.com" className="hover:text-primary">
+                          support@tillapos.com
                         </a>
                       </p>
                     </div>
@@ -72,8 +72,8 @@ export default function ContactPage() {
                       <Phone className="h-5 w-5 text-primary" />
                     </div>
                     <div className="ml-4">
-                      <h3 className="text-lg font-medium text-white">Phone</h3>
-                      <p className="mt-1 text-gray-300">
+                      <h3 className="text-lg font-medium text-gray-900">Phone</h3>
+                      <p className="mt-1 text-gray-600">
                         <a href="tel:+254720024670" className="hover:text-primary">
                           +254 720 024 670
                         </a>
@@ -82,7 +82,7 @@ export default function ContactPage() {
                         href="https://wa.me/254720024670"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-2 inline-flex items-center gap-2 rounded-full bg-green-600/20 px-3 py-1 text-sm text-green-400 hover:bg-green-600/30 transition-colors"
+                        className="mt-2 inline-flex items-center gap-2 rounded-full bg-green-100 px-3 py-1 text-sm text-green-700 hover:bg-green-200 transition-colors"
                       >
                         <WhatsApp className="h-4 w-4" />
                         <span>Chat on WhatsApp</span>
@@ -97,7 +97,7 @@ export default function ContactPage() {
                       <MessageSquare className="h-5 w-5 text-primary" />
                     </div>
                     <div className="ml-4">
-                      <h3 className="text-lg font-medium text-white">Live Chat</h3>
+                      <h3 className="text-lg font-medium text-gray-900">Live Chat</h3>
                       <p className="mt-1 text-gray-300">
                         Available Monday-Friday
                         <br />
