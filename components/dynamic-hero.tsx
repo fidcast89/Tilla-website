@@ -96,7 +96,7 @@ export function DynamicHero() {
               <Button
                 size="lg"
                 className="rounded-full bg-primary text-white hover:bg-primary/90"
-                onClick={() => window.location.href = 'mailto:support@tillapos.com?subject=Tilla%20Inquiry'}
+                onClick={() => window.location.href = 'mailto:info@tilla.app?subject=Tilla%20Inquiry'}
               >
                 Contact Us <ArrowRight className="ml-2 h-4 w-4" />
               </Button>

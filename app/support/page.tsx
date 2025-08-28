@@ -322,7 +322,7 @@ export default function SupportPage() {
                 Can't find what you're looking for? Contact our support team directly.
               </p>
               <div className="space-y-2">
-                <Link href="mailto:support@tillapos.com">
+                <Link href="mailto:info@tilla.app">
                   <button className="w-full py-2.5 bg-white text-slate-800 rounded-lg text-sm font-medium flex items-center justify-center gap-2 border border-slate-200">
                     <Mail className="w-4 h-4 text-[#00C696]" />
                     Email Support

@@ -138,7 +138,7 @@ export default function TermsPage() {
                   If you have any questions about these Terms, please contact us at:
                 </p>
                 <p>
-                  Email: support@tillapos.com
+                  Email: info@tilla.app
                 </p>
                 <div className="mt-8 text-sm text-gray-500">
                   <p>

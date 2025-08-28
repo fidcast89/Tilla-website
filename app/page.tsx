@@ -386,7 +386,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   className="rounded-full bg-white text-primary hover:bg-white/90"
-                  onClick={() => window.location.href = 'mailto:support@tillapos.com?subject=Tilla%20Inquiry'}
+                  onClick={() => window.location.href = 'mailto:info@tilla.app?subject=Tilla%20Inquiry'}
                 >
                   Contact Us <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -394,7 +394,7 @@ export default function Home() {
                   size="lg"
                   variant="outline"
                   className="rounded-full border-white text-white hover:bg-white/10"
-                  onClick={() => window.location.href = 'mailto:support@tillapos.com?subject=Tilla%20Demo%20Request'}
+                  onClick={() => window.location.href = 'mailto:info@tilla.app?subject=Tilla%20Demo%20Request'}
                 >
                   See a demo
                 </Button>
@@ -520,7 +520,7 @@ export default function Home() {
                   <Button
                     size="lg"
                     className="rounded-full bg-white text-primary hover:bg-white/90"
-                    onClick={() => window.location.href = 'mailto:support@tillapos.com?subject=Tilla%20Inquiry'}
+                    onClick={() => window.location.href = 'mailto:info@tilla.app?subject=Tilla%20Inquiry'}
                   >
                     Contact Us <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -528,7 +528,7 @@ export default function Home() {
                     size="lg"
                     variant="outline"
                     className="rounded-full border-white text-white hover:bg-white/10"
-                    onClick={() => window.location.href = 'mailto:support@tillapos.com?subject=Tilla%20Demo%20Request'}
+                    onClick={() => window.location.href = 'mailto:info@tilla.app?subject=Tilla%20Demo%20Request'}
                   >
                     Schedule a demo
                   </Button>

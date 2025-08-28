@@ -149,7 +149,7 @@ export default function PrivacyPage() {
                   If you have any questions about this Privacy Policy, please contact us at:
                 </p>
                 <p>
-                  Email: support@tillapos.com
+                  Email: info@tilla.app
                 </p>
               </FadeIn>
             </div>
