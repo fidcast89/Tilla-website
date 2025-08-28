@@ -117,7 +117,7 @@ export function Footer() {
         </div>
         <div className="mt-12 border-t border-gray-800 pt-8">
           <p className="text-center text-xs text-gray-400">
-            &copy; {new Date().getFullYear()} iHustle. All rights reserved.
+            &copy; {new Date().getFullYear()} Tilla. All rights reserved.
           </p>
           <div className="mt-4 flex justify-center space-x-6">
             <Link href="/terms" className="text-xs text-gray-400 hover:text-white">

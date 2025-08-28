@@ -35,7 +35,7 @@ export default function ProfilePage() {
     name: "Cameron Smith",
     email: "cameron@example.com",
     phone: "+254 712 345 678",
-    storeName: "iHustle Coffee",
+    storeName: "Tilla Coffee",
     storeType: "Food & Beverage",
     notifications: true,
   })

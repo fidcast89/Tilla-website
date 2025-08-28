@@ -117,7 +117,7 @@ export default function Home() {
                 Let AI do the heavy lifting
               </h2>
               <p className="text-lg text-gray-300">
-                We've packed iHustle with AI features that actually make your life easier. No gimmicks, just practical
+                We've packed Tilla with AI features that actually make your life easier. No gimmicks, just practical
                 magic.
               </p>
             </FadeIn>
@@ -182,7 +182,7 @@ export default function Home() {
                 Simple enough for anyone to use
               </h2>
               <p className="text-lg text-gray-300">
-                No tech degree required. If you can use a smartphone, you can use iHustle POS.
+                No tech degree required. If you can use a smartphone, you can use Tilla POS.
               </p>
             </FadeIn>
           </div>
@@ -355,7 +355,7 @@ export default function Home() {
               <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
                 Don't just take our word for it
               </h2>
-              <p className="text-lg text-gray-300">Here's what our beta testers have to say about iHustle POS.</p>
+              <p className="text-lg text-gray-300">Here's what our beta testers have to say about Tilla POS.</p>
             </FadeIn>
           </div>
 
@@ -377,7 +377,7 @@ export default function Home() {
               delay={0.2}
             />
             <TestimonialCard
-              quote="I'm not tech-savvy at all, but iHustle is actually fun to use! The AI suggestions have helped me stock the right products at the right time."
+              quote="I'm not tech-savvy at all, but Tilla is actually fun to use! The AI suggestions have helped me stock the right products at the right time."
               author="Priya M."
               role="Grocery Store Owner"
               avatar="/placeholder.svg?height=48&width=48"
@@ -518,9 +518,9 @@ export default function Home() {
           <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2">
             <FadeIn delay={0.1}>
               <div>
-                <h3 className="text-xl font-semibold text-white">Do I need to be tech-savvy to use iHustle?</h3>
+                <h3 className="text-xl font-semibold text-white">Do I need to be tech-savvy to use Tilla?</h3>
                 <p className="mt-2 text-gray-300">
-                  Not at all! If you can use WhatsApp, you can use iHustle. We've designed it to be super intuitive, and
+                  Not at all! If you can use WhatsApp, you can use Tilla. We've designed it to be super intuitive, and
                   our AI features actually make technology work for you, not the other way around.
                 </p>
               </div>
@@ -528,9 +528,9 @@ export default function Home() {
 
             <FadeIn delay={0.2}>
               <div>
-                <h3 className="text-xl font-semibold text-white">Can I use iHustle when my internet is down?</h3>
+                <h3 className="text-xl font-semibold text-white">Can I use Tilla when my internet is down?</h3>
                 <p className="mt-2 text-gray-300">
-                  We know connectivity can be an issue. iHustle works offline and automatically syncs when you're back
+                  We know connectivity can be an issue. Tilla works offline and automatically syncs when you're back
                   online. No more lost sales due to network problems.
                 </p>
               </div>
@@ -559,7 +559,7 @@ export default function Home() {
 
             <FadeIn delay={0.5}>
               <div>
-                <h3 className="text-xl font-semibold text-white">Can iHustle help me sell online too?</h3>
+                <h3 className="text-xl font-semibold text-white">Can Tilla help me sell online too?</h3>
                 <p className="mt-2 text-gray-300">
                   Yes! We make it super easy to post your products on social media with AI-generated descriptions and
                   hashtags. Plus, we're working on integrations with popular e-commerce platforms.
@@ -587,7 +587,7 @@ export default function Home() {
             <div className="text-center">
               <FadeIn>
                 <h2 className="mb-6 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                  Try iHustle free for 14 days
+                  Try Tilla free for 14 days
                 </h2>
                 <p className="mb-8 text-lg text-white/80">
                   No credit card needed. See how AI can transform your Hustle.

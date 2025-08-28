@@ -23,14 +23,14 @@ export default function TermsPage() {
               <FadeIn delay={0.1}>
                 <h2>1. Introduction</h2>
                 <p>
-                  Welcome to iHustle. These Terms and Conditions govern your use of the iHustle mobile application and website (collectively, the "Service"). By using our Service, you agree to these terms. Please read them carefully.
+                  Welcome to Tilla. These Terms and Conditions govern your use of the Tilla mobile application and website (collectively, the "Service"). By using our Service, you agree to these terms. Please read them carefully.
                 </p>
               </FadeIn>
 
               <FadeIn delay={0.15}>
                 <h2>2. Definitions</h2>
                 <p>
-                  <strong>"Application"</strong> refers to iHustle, the mobile application and web platform.
+                  <strong>"Application"</strong> refers to Tilla, the mobile application and web platform.
                 </p>
                 <p>
                   <strong>"Service"</strong> refers to the Application and all services provided through it.
@@ -92,7 +92,7 @@ export default function TermsPage() {
               <FadeIn delay={0.4}>
                 <h2>7. Specific Provisions for African Users</h2>
                 <p>
-                  iHustle complies with relevant data protection laws in African countries where it operates, including:
+                  Tilla complies with relevant data protection laws in African countries where it operates, including:
                 </p>
                 <ul>
                   <li>Kenya's Data Protection Act, 2019</li>
@@ -126,13 +126,28 @@ export default function TermsPage() {
               </FadeIn>
 
               <FadeIn delay={0.55}>
-                <h2>10. Contact Information</h2>
+                <h2>10. Website Ownership</h2>
+                <p>
+                  This website and the Tilla service are owned and operated by Clockwise Digital.
+                </p>
+              </FadeIn>
+
+              <FadeIn delay={0.6}>
+                <h2>11. Contact Information</h2>
                 <p>
                   If you have any questions about these Terms, please contact us at:
                 </p>
                 <p>
-                  Email: ihustlebiz24@gmail.com
+                  Email: support@tillapos.com
                 </p>
+                <div className="mt-8 text-sm text-gray-500">
+                  <p>
+                    Clockwise Digital<br />
+                    Kakamega Road, Next to Miriram House<br />
+                    Kisumu, Kenya<br />
+                    P.O BOX 463 - 40100
+                  </p>
+                </div>
               </FadeIn>
             </div>
           </div>

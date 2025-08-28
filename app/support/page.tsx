@@ -23,12 +23,12 @@ export default function SupportPage() {
   const articles = [
     {
       id: "getting-started-guide",
-      title: "Getting Started with iHustle",
+      title: "Getting Started with Tilla",
       category: "getting-started",
-      summary: "Learn the basics of setting up and using iHustle for your business.",
+      summary: "Learn the basics of setting up and using Tilla for your business.",
       content: `
-        <h2>Getting Started with iHustle</h2>
-        <p>Welcome to iHustle! This guide will help you get started with the app and set up your business.</p>
+        <h2>Getting Started with Tilla</h2>
+        <p>Welcome to Tilla! This guide will help you get started with the app and set up your business.</p>
 
         <h3>Step 1: Create Your Account</h3>
         <p>When you first open the app, you'll be prompted to create an account. Enter your business name, email, and create a password.</p>
@@ -50,10 +50,10 @@ export default function SupportPage() {
       id: "processing-sales",
       title: "How to Process Sales",
       category: "sales",
-      summary: "Learn how to create and manage sales transactions in iHustle.",
+      summary: "Learn how to create and manage sales transactions in Tilla.",
       content: `
         <h2>How to Process Sales</h2>
-        <p>Processing sales in iHustle is quick and easy. Follow these steps to complete a transaction.</p>
+        <p>Processing sales in Tilla is quick and easy. Follow these steps to complete a transaction.</p>
 
         <h3>Creating a New Sale</h3>
         <p>From the home screen or sales page, tap the "New Sale" button to start a new transaction.</p>
@@ -81,7 +81,7 @@ export default function SupportPage() {
       summary: "Learn how to add, edit, and track your product inventory.",
       content: `
         <h2>Managing Your Inventory</h2>
-        <p>Effective inventory management is crucial for your business. Here's how to manage your products in iHustle.</p>
+        <p>Effective inventory management is crucial for your business. Here's how to manage your products in Tilla.</p>
 
         <h3>Adding New Products</h3>
         <p>Go to the Products page and tap "New Product". Fill in the product details including name, price, cost, and quantity.</p>
@@ -90,7 +90,7 @@ export default function SupportPage() {
         <p>Organize your products by assigning them to categories. You can create and manage categories in the Settings page.</p>
 
         <h3>Tracking Stock Levels</h3>
-        <p>iHustle automatically updates stock levels when you make sales. You can also manually adjust stock from the product details page.</p>
+        <p>Tilla automatically updates stock levels when you make sales. You can also manually adjust stock from the product details page.</p>
 
         <h3>Low Stock Alerts</h3>
         <p>Set low stock thresholds in Settings to receive notifications when products need to be restocked.</p>
@@ -106,7 +106,7 @@ export default function SupportPage() {
       summary: "Learn how to create and manage credit sales for your customers.",
       content: `
         <h2>Managing Credit Sales</h2>
-        <p>Credit sales allow you to sell products to customers who will pay later. Here's how to manage credit sales in iHustle.</p>
+        <p>Credit sales allow you to sell products to customers who will pay later. Here's how to manage credit sales in Tilla.</p>
 
         <h3>Creating a Credit Sale</h3>
         <p>Start a new sale and select "Credit Sale" as the sale type. You must select a customer for credit sales.</p>
@@ -131,7 +131,7 @@ export default function SupportPage() {
       summary: "Learn how to add and manage customer information and track their purchase history.",
       content: `
         <h2>Managing Customers</h2>
-        <p>Building relationships with your customers is essential. Here's how to manage customer information in iHustle.</p>
+        <p>Building relationships with your customers is essential. Here's how to manage customer information in Tilla.</p>
 
         <h3>Adding New Customers</h3>
         <p>Go to the Customers page and tap "Add Customer". Enter their name, contact information, and any notes.</p>
@@ -322,7 +322,7 @@ export default function SupportPage() {
                 Can't find what you're looking for? Contact our support team directly.
               </p>
               <div className="space-y-2">
-                <Link href="mailto:support@ihustle.com">
+                <Link href="mailto:support@tillapos.com">
                   <button className="w-full py-2.5 bg-white text-slate-800 rounded-lg text-sm font-medium flex items-center justify-center gap-2 border border-slate-200">
                     <Mail className="w-4 h-4 text-[#00C696]" />
                     Email Support

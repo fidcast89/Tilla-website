@@ -10,7 +10,7 @@ import { FadeIn } from "@/components/fade-in"
 const heroContents = [
   {
     title: "One App, Your <span>Complete</span> Business Solution",
-    description: "Stop juggling multiple apps and paper records. iHustle brings everything together - sales, inventory, customers, analytics - in one simple, powerful mobile app."
+    description: "Stop juggling multiple apps and paper records. Tilla brings everything together - sales, inventory, customers, analytics - in one simple, powerful mobile app."
   },
   {
     title: "Your <span>Hustle</span>, supercharged with AI",
@@ -18,31 +18,31 @@ const heroContents = [
   },
   {
     title: "Small Business, <span>Big</span> Possibilities",
-    description: "iHustle gives small businesses the same powerful tools that big companies use, at a fraction of the cost. Level the playing field with AI-powered business management."
+    description: "Tilla gives small businesses the same powerful tools that big companies use, at a fraction of the cost. Level the playing field with AI-powered business management."
   },
   {
     title: "Your Entire <span>Business</span> in Your Pocket",
-    description: "iHustle transforms your smartphone into a complete business management system. Sell, track, analyze, and grow - all from the palm of your hand."
+    description: "Tilla transforms your smartphone into a complete business management system. Sell, track, analyze, and grow - all from the palm of your hand."
   },
   {
     title: "Your Business Assistant, <span>Online or Offline</span>",
-    description: "iHustle works even when your internet doesn't. Keep selling, tracking inventory, and managing customers anywhere - everything syncs when you're back online."
+    description: "Tilla works even when your internet doesn't. Keep selling, tracking inventory, and managing customers anywhere - everything syncs when you're back online."
   },
   {
     title: "Business Management Made <span>Simple</span>",
-    description: "No technical skills required. If you can use WhatsApp, you can use iHustle to manage your entire business, from sales to inventory to customer relationships."
+    description: "No technical skills required. If you can use WhatsApp, you can use Tilla to manage your entire business, from sales to inventory to customer relationships."
   },
   {
     title: "<span>AI</span> That Actually Helps Your Business",
-    description: "No more guesswork. iHustle's AI analyzes your sales, predicts trends, and gives you practical advice to boost profits and streamline operations."
+    description: "No more guesswork. Tilla's AI analyzes your sales, predicts trends, and gives you practical advice to boost profits and streamline operations."
   },
   {
     title: "Your <span>Hustle</span> Simplified, Anywhere You Go",
-    description: "iHustle turns your smartphone into a powerful business tool. No complicated systems, no tech headaches - just a simple app that helps you sell more and stress less."
+    description: "Tilla turns your smartphone into a powerful business tool. No complicated systems, no tech headaches - just a simple app that helps you sell more and stress less."
   },
   {
     title: "Save <span>Hours</span> Every Day with Smart Tools",
-    description: "Stop wasting time on manual inventory, sales tracking, and customer management. iHustle automates the boring stuff so you can focus on what matters - growing your business."
+    description: "Stop wasting time on manual inventory, sales tracking, and customer management. Tilla automates the boring stuff so you can focus on what matters - growing your business."
   }
 ]
 
@@ -96,7 +96,7 @@ export function DynamicHero() {
               <Button
                 size="lg"
                 className="rounded-full bg-primary text-white hover:bg-primary/90"
-                onClick={() => window.location.href = 'mailto:ihustlebiz24@gmail.com?subject=iHustle%20Inquiry'}
+                onClick={() => window.location.href = 'mailto:support@tillapos.com?subject=Tilla%20Inquiry'}
               >
                 Contact Us <ArrowRight className="ml-2 h-4 w-4" />
               </Button>

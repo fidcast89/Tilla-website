@@ -208,7 +208,7 @@ export default function SignupPage() {
             <Check className="w-10 h-10 text-primary" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            Complete Your <span className="text-primary">iHustle</span> Setup
+            Complete Your <span className="text-primary">Tilla</span> Setup
           </h1>
           <p className="text-slate-400 text-lg max-w-2xl">
             You've been invited to join <strong className="text-primary">{businessName}</strong> as <strong className="text-primary">{roleName}</strong>!

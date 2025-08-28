@@ -31,7 +31,7 @@ export function Navbar() {
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <img src="/logo_n_tagline_horizontal.png" alt="iHustle Logo" className="h-8" />
+              <img src="/tilla_logo.png" alt="Tilla Logo" className="h-8" />
             </Link>
           </div>
 

@@ -31,7 +31,7 @@ export default function SetupPage() {
           </div>
         </div>
 
-        <h1 className="text-2xl font-bold text-center mb-2">iHustle Setup</h1>
+        <h1 className="text-2xl font-bold text-center mb-2">Tilla Setup</h1>
         <p className="text-slate-500 text-center mb-6">Set up your database schema and sample data</p>
 
         <div className="space-y-4">

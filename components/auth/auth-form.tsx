@@ -89,7 +89,7 @@ export function AuthForm() {
       if (session) {
         toast({
           title: "Sign in successful",
-          description: "Welcome back to iHustle POS",
+          description: "Welcome back to Tilla POS",
         })
         setAuth(true)
         router.push("/")
@@ -123,7 +123,7 @@ export function AuthForm() {
       if (user) {
         toast({
           title: "Account created successfully",
-          description: "Welcome to iHustle POS",
+          description: "Welcome to Tilla POS",
         })
         router.push("/onboarding")
       } else {
@@ -146,14 +146,14 @@ export function AuthForm() {
       <div className="flex flex-col items-center justify-center mt-12 mb-8">
         <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
           <Image
-            src="/placeholder.svg?height=40&width=40"
-            alt="iHustle Logo"
+            src="/tilla_favicon.png"
+            alt="Tilla Logo"
             width={40}
             height={40}
             className="rounded-md"
           />
         </div>
-        <h1 className="text-2xl font-bold text-center">Welcome to iHustle</h1>
+        <h1 className="text-2xl font-bold text-center">Welcome to Tilla</h1>
         <p className="text-sm text-muted-foreground text-center mt-2">
           AI-powered POS and eCommerce platform for small businesses
         </p>

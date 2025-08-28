@@ -76,7 +76,7 @@ export function SideMenu({ isOpen, setIsOpen }: SideMenuProps) {
           >
             <div className="p-6 border-b border-slate-100">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-xl font-semibold text-primary">iHustle POS</h2>
+                <h2 className="text-xl font-semibold text-primary">Tilla POS</h2>
                 <button
                   onClick={() => setIsOpen(false)}
                   className="w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center hover:bg-slate-200 transition-colors"

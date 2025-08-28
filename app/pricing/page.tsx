@@ -384,9 +384,9 @@ export default function PricingPage() {
 
             <FadeIn delay={0.4}>
               <div>
-                <h3 className="text-xl font-semibold text-white">Is iHustle suitable for emerging markets?</h3>
+                <h3 className="text-xl font-semibold text-white">Is Tilla suitable for emerging markets?</h3>
                 <p className="mt-2 text-gray-300">
-                  Absolutely! iHustle is designed for diverse markets worldwide, with features like mobile money integration, offline functionality, and support for local currencies and languages.
+                  Absolutely! Tilla is designed for diverse markets worldwide, with features like mobile money integration, offline functionality, and support for local currencies and languages.
                 </p>
               </div>
             </FadeIn>

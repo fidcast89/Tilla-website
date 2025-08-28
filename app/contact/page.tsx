@@ -60,8 +60,8 @@ export default function ContactPage() {
                     <div className="ml-4">
                       <h3 className="text-lg font-medium text-white">Email</h3>
                       <p className="mt-1 text-gray-300">
-                        <a href="mailto:ihustlebiz24@gmail.com" className="hover:text-primary">
-                          ihustlebiz24@gmail.com
+                        <a href="mailto:support@tillapos.com" className="hover:text-primary">
+                          support@tillapos.com
                         </a>
                       </p>
                     </div>

@@ -43,7 +43,7 @@ export function SidebarNav({ isOpen, onOpenChange, items }: SidebarNavProps) {
             <div className="h-6 w-6 rounded bg-primary flex items-center justify-center">
               <Store className="h-3 w-3 text-primary-foreground" />
             </div>
-            <span className="text-xl font-bold">iHustle</span>
+            <span className="text-xl font-bold">Tilla</span>
           </div>
         </SidebarHeader>
         <SidebarContent>
@@ -86,7 +86,7 @@ export function SidebarNav({ isOpen, onOpenChange, items }: SidebarNavProps) {
         </SidebarContent>
         <SidebarFooter className="p-3 border-t border-sidebar-border">
           <div className="flex items-center text-xs text-sidebar-foreground">
-            <span>© 2025 iHustle POS</span>
+            <span>© 2025 Tilla POS</span>
           </div>
         </SidebarFooter>
       </Sidebar>

@@ -28,7 +28,7 @@ export default function FeaturesPage() {
                 Features that make your <span className="text-primary">Hustle</span> smarter
               </h1>
               <p className="mb-8 text-lg text-gray-300">
-                We've packed iHustle with powerful features that help small businesses work smarter, not harder.
+                We've packed Tilla with powerful features that help small businesses work smarter, not harder.
                 Here's how we're different.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
@@ -237,7 +237,7 @@ export default function FeaturesPage() {
                 Everything you need to run your business
               </h2>
               <p className="text-lg text-gray-300">
-                iHustle is packed with features designed specifically for small businesses like yours.
+                Tilla is packed with features designed specifically for small businesses like yours.
               </p>
             </FadeIn>
           </div>
@@ -251,7 +251,7 @@ export default function FeaturesPage() {
               },
               {
                 title: "Multi-language Support",
-                description: "Run your business in your language. iHustle supports multiple languages and currencies.",
+                description: "Run your business in your language. Tilla supports multiple languages and currencies.",
               },
               {
                 title: "Supplier Management",
@@ -302,7 +302,7 @@ export default function FeaturesPage() {
                 Ready to transform your business?
               </h2>
               <p className="mb-8 text-lg text-white/80">
-                Join thousands of small businesses using iHustle to work smarter, not harder.
+                Join thousands of small businesses using Tilla to work smarter, not harder.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button size="lg" className="rounded-full bg-white text-primary hover:bg-white/90">

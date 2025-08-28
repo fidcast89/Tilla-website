@@ -23,7 +23,7 @@ export default function PrivacyPage() {
               <FadeIn delay={0.1}>
                 <h2>1. Introduction</h2>
                 <p>
-                  At iHustle, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and website (collectively, the "Service"). Please read this policy carefully to understand our practices regarding your personal data.
+                  At Tilla, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and website (collectively, the "Service"). Please read this policy carefully to understand our practices regarding your personal data.
                 </p>
               </FadeIn>
 
@@ -137,12 +137,19 @@ export default function PrivacyPage() {
               </FadeIn>
 
               <FadeIn delay={0.55}>
-                <h2>10. Contact Information</h2>
+                <h2>10. Data Controller</h2>
+                <p>
+                  The data controller for this website and the Tilla service is Clockwise Digital.
+                </p>
+              </FadeIn>
+
+              <FadeIn delay={0.6}>
+                <h2>11. Contact Information</h2>
                 <p>
                   If you have any questions about this Privacy Policy, please contact us at:
                 </p>
                 <p>
-                  Email: ihustlebiz24@gmail.com
+                  Email: support@tillapos.com
                 </p>
               </FadeIn>
             </div>

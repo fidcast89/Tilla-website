@@ -7,10 +7,10 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "iHustle - One App, Your Complete Business Solution",
+  title: "Tilla - One App, Your Complete Business Solution",
   description:
-    "Stop juggling multiple apps and paper records. iHustle brings everything together - sales, inventory, customers, analytics - in one simple, powerful mobile app.",
-  metadataBase: new URL("https://www.ihustlebiz.com"),
+    "Stop juggling multiple apps and paper records. Tilla brings everything together - sales, inventory, customers, analytics - in one simple, powerful mobile app.",
+  metadataBase: new URL("https://www.tillapos.com"),
   generator: "v0.dev",
 }
 
