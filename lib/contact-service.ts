@@ -10,10 +10,21 @@ export interface ContactSubmission {
 }
 
 class ContactService {
-  private supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL || '',
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
-  )
+  private supabase: ReturnType<typeof createClient> | null = null
+
+  private getSupabase() {
+    if (!this.supabase) {
+      const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+      const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+      if (!url || !key) {
+        throw new Error('Supabase environment variables are not configured')
+      }
+
+      this.supabase = createClient(url, key)
+    }
+    return this.supabase
+  }
 
   /**
    * Submit a contact form
@@ -47,7 +58,7 @@ class ContactService {
       }
 
       // Insert into Supabase
-      const { error } = await this.supabase
+      const { error } = await this.getSupabase()
         .from('contact_submissions')
         .insert([
           {

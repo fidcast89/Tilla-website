@@ -22,17 +22,28 @@ export interface PricingData {
 }
 
 class PricingService {
-  private supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL || '',
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
-  )
+  private supabase: ReturnType<typeof createClient> | null = null
+
+  private getSupabase() {
+    if (!this.supabase) {
+      const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+      const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+      if (!url || !key) {
+        throw new Error('Supabase environment variables are not configured')
+      }
+
+      this.supabase = createClient(url, key)
+    }
+    return this.supabase
+  }
 
   /**
    * Fetch all active pricing plans
    */
   async getAllPricingPlans(): Promise<PricingPlan[]> {
     try {
-      const { data, error } = await this.supabase
+      const { data, error } = await this.getSupabase()
         .from('marketing_pricing_plans')
         .select('*')
         .eq('is_active', true)
@@ -52,7 +63,7 @@ class PricingService {
    */
   async getBasePricing(): Promise<PricingPlan[]> {
     try {
-      const { data, error } = await this.supabase
+      const { data, error } = await this.getSupabase()
         .from('marketing_pricing_plans')
         .select('*')
         .is('region', null)
@@ -77,7 +88,7 @@ class PricingService {
    */
   async getRegionalPricing(region: string): Promise<PricingPlan[]> {
     try {
-      const { data, error } = await this.supabase
+      const { data, error } = await this.getSupabase()
         .from('marketing_pricing_plans')
         .select('*')
         .eq('region', region)
@@ -97,7 +108,7 @@ class PricingService {
    */
   async getPricingByTier(tier: string, region?: string): Promise<PricingPlan | null> {
     try {
-      let query = this.supabase
+      let query = this.getSupabase()
         .from('marketing_pricing_plans')
         .select('*')
         .eq('tier', tier)
@@ -172,7 +183,7 @@ class PricingService {
    */
   async getAllFeaturesForComparison(): Promise<any[]> {
     try {
-      const { data, error } = await this.supabase
+      const { data, error } = await this.getSupabase()
         .from('comparison_features')
         .select('*')
         .order('sort_order', { ascending: true })
