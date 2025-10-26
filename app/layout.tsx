@@ -13,6 +13,12 @@ export const metadata: Metadata = {
   keywords: "Tilla POS, Tilla app, Till POS, Till app, POS app Kenya, shop management app Kenya, POS app Rwanda, free POS app, business app Africa, inventory tracking app, mobile POS Kenya, inventory & sales tracking Africa, all in one business app Kenya",
   metadataBase: new URL("https://www.tillapos.com"),
   generator: "v0.dev",
+  icons: {
+    icon: [
+      { url: "/tilla_favicon.png", sizes: "any", type: "image/png" },
+    ],
+    apple: "/tilla_favicon.png",
+  },
   openGraph: {
     title: "Tilla App - Smart POS for Modern African Retailers",
     description: "AI-powered POS and inventory management for small businesses in East Africa",
@@ -54,6 +60,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="dark">
+      <head>
+        <link rel="icon" href="/tilla_favicon.png" type="image/png" sizes="any" />
+        <link rel="apple-touch-icon" href="/tilla_favicon.png" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} forcedTheme="dark">
           {children}
