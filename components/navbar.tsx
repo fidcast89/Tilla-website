@@ -38,6 +38,7 @@ export function Navbar() {
           <nav className="hidden md:block">
             <ul className="flex space-x-8">
               {[
+                { name: "Home", href: "/" },
                 { name: "Features", href: "/features" },
                 { name: "Pricing", href: "/pricing" },
                 { name: "Contact", href: "/contact" },
@@ -52,10 +53,11 @@ export function Navbar() {
           </nav>
 
           <div className="hidden md:block">
-            <Button variant="outline" className="mr-3 border-gray-700 text-gray-300 hover:bg-gray-800 hover:text-white">
-              Log in
+            <Button
+              onClick={() => window.location.href = 'https://pos.tilla.app'}
+            >
+              Get started
             </Button>
-            <Button className="bg-primary text-white hover:bg-primary/90">Sign up</Button>
           </div>
 
           <div className="md:hidden">
@@ -78,6 +80,7 @@ export function Navbar() {
           <div className="bg-gray-900 px-4 py-2">
             <ul className="space-y-4 py-4">
               {[
+                { name: "Home", href: "/" },
                 { name: "Features", href: "/features" },
                 { name: "Pricing", href: "/pricing" },
                 { name: "Contact", href: "/contact" },
@@ -94,14 +97,11 @@ export function Navbar() {
               ))}
               <li className="pt-4">
                 <Button
-                  variant="outline"
-                  className="w-full border-gray-700 text-gray-300 hover:bg-gray-800 hover:text-white"
+                  className="w-full"
+                  onClick={() => window.location.href = 'https://pos.tilla.app'}
                 >
-                  Log in
+                  Get started
                 </Button>
-              </li>
-              <li className="pt-2">
-                <Button className="w-full bg-primary text-white hover:bg-primary/90">Sign up</Button>
               </li>
             </ul>
           </div>

@@ -7,11 +7,44 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Tilla - One App, Your Complete Business Solution",
+  title: "Tilla App - Free Smart POS & Business App for Retailers",
   description:
-    "Stop juggling multiple apps and paper records. Tilla brings everything together - sales, inventory, customers, analytics - in one simple, powerful mobile app.",
+    "Tilla is not just a POS - it's your all-in-one smart business app. Sell, track stock, take payments, and post products online from any device. Simple, free, and built for modern retailers.",
+  keywords: "POS app Kenya, shop management app Kenya, POS app Rwanda, free POS app, business app Africa, inventory tracking app, mobile POS Kenya, inventory & sales tracking Africa, all in one business app Kenya",
   metadataBase: new URL("https://www.tillapos.com"),
   generator: "v0.dev",
+  openGraph: {
+    title: "Tilla App - Smart POS for Modern African Retailers",
+    description: "AI-powered POS and inventory management for small businesses in East Africa",
+    url: "https://www.tillapos.com",
+    siteName: "Tilla App",
+    images: [
+      {
+        url: "/tilla_logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Tilla App Logo",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tilla App - Smart POS for Modern African Retailers",
+    description: "AI-powered POS and inventory management for small businesses",
+    images: ["/tilla_logo.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
 }
 
 export default function RootLayout({

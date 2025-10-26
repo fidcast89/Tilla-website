@@ -25,20 +25,20 @@ export default function FeaturesPage() {
           <div className="mx-auto max-w-3xl text-center relative z-10">
             <FadeIn>
               <h1 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-                Features that make your <span className="text-primary">Hustle</span> smarter
+                Features that make your <span className="text-primary">business</span> smarter
               </h1>
               <p className="mb-8 text-lg text-gray-300">
                 We've packed Tilla with powerful features that help small businesses work smarter, not harder.
                 Here's how we're different.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button size="lg" className="rounded-full bg-primary text-white hover:bg-primary/90">
-                  Start your free trial <ArrowRight className="ml-2 h-4 w-4" />
+                <Button size="lg" className="bg-primary text-white hover:bg-primary/90">
+                  Get started <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-full border-gray-700 text-gray-300 hover:bg-gray-800 hover:text-white"
+                  className="border-gray-700 text-gray-300 hover:bg-gray-800 hover:text-white"
                 >
                   See a demo
                 </Button>
@@ -49,10 +49,10 @@ export default function FeaturesPage() {
       </section>
 
       {/* Feature Sections */}
-      <section className="py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 overflow-visible">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 overflow-visible">
           {/* Feature 1 */}
-          <div className="mb-32 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="mb-32 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-24">
             <FadeIn>
               <div>
                 <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
@@ -95,7 +95,7 @@ export default function FeaturesPage() {
           </div>
 
           {/* Feature 2 */}
-          <div className="mb-32 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="mb-32 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-24">
             <FadeIn className="order-2 lg:order-1">
               <div className="relative">
                 <div className="absolute -bottom-8 -right-8 h-64 w-64 rounded-full bg-primary/10 blur-3xl"></div>
@@ -138,7 +138,7 @@ export default function FeaturesPage() {
           </div>
 
           {/* Feature 3 */}
-          <div className="mb-32 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="mb-32 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-24">
             <FadeIn>
               <div>
                 <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
@@ -181,7 +181,7 @@ export default function FeaturesPage() {
           </div>
 
           {/* Feature 4 */}
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-24">
             <FadeIn className="order-2 lg:order-1">
               <div className="relative">
                 <div className="absolute -bottom-8 -left-8 h-64 w-64 rounded-full bg-primary/10 blur-3xl"></div>
@@ -245,41 +245,42 @@ export default function FeaturesPage() {
           <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                title: "Social Media Integration",
+                title: "AI Product Creation",
                 description:
-                  "Turn inventory into Instagram-ready posts with AI-generated captions and hashtags that actually work.",
+                  "Snap a photo of your product and let AI generate the title, description, category, and pricing suggestions instantly.",
               },
               {
-                title: "Multi-language Support",
-                description: "Run your business in your language. Tilla supports multiple languages and currencies.",
+                title: "Social Media Integration",
+                description:
+                  "Post directly to social media with AI-generated captions and hashtags. Reach customers where they spend their time.",
               },
               {
                 title: "Supplier Management",
-                description: "Track your suppliers, manage orders, and get notified when it's time to restock.",
+                description: "Track suppliers, manage orders, and get automatic restock notifications when inventory runs low.",
               },
               {
-                title: "Employee Management",
-                description: "Add team members with custom permissions and track their sales performance.",
+                title: "Multi-branch Support",
+                description: "Manage multiple locations from one dashboard. Track inventory and sales across all your branches.",
               },
               {
-                title: "Receipt Customization",
-                description: "Brand your receipts with your logo, custom messages, and special offers.",
+                title: "Income Statements",
+                description: "Get detailed financial reports showing revenue, expenses, and profit at a glance.",
               },
               {
-                title: "Data Export",
-                description: "Export your data anytime in multiple formats for accounting or analysis.",
+                title: "Advanced Analytics",
+                description: "Deep dive into sales trends, customer behavior, and product performance with detailed charts and insights.",
               },
               {
                 title: "Offline Mode",
-                description: "Keep selling even when the internet is down. Everything syncs when you're back online.",
+                description: "Keep selling even when the internet is down. Everything syncs automatically when you're back online.",
               },
               {
-                title: "Customer Feedback",
-                description: "Collect and analyze customer feedback to improve your products and service.",
+                title: "Role-based Access Control",
+                description: "Add team members with custom permissions. Control who can view sales, manage inventory, or access reports.",
               },
               {
-                title: "Integrations",
-                description: "Connect with popular accounting, e-commerce, and payment processing tools.",
+                title: "Real-time Sync",
+                description: "All your data syncs in real-time across devices. Never worry about data being out of sync.",
               },
             ].map((feature, index) => (
               <FadeIn key={index} delay={index * 0.1}>
@@ -305,13 +306,13 @@ export default function FeaturesPage() {
                 Join thousands of small businesses using Tilla to work smarter, not harder.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button size="lg" className="rounded-full bg-white text-primary hover:bg-white/90">
-                  Start your free trial <ArrowRight className="ml-2 h-4 w-4" />
+                <Button size="lg" className="bg-white text-primary hover:bg-white/90">
+                  Get started <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <Button size="lg" variant="outline" className="rounded-full border-white text-white hover:bg-white/10">
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                   Schedule a demo
                 </Button>
-                <Button size="lg" className="rounded-full bg-black text-white hover:bg-black/90">
+                <Button size="lg" className="bg-black text-white hover:bg-black/90">
                   Apply for Beta
                 </Button>
               </div>

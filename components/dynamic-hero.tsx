@@ -13,8 +13,8 @@ const heroContents = [
     description: "Stop juggling multiple apps and paper records. Tilla brings everything together - sales, inventory, customers, analytics - in one simple, powerful mobile app."
   },
   {
-    title: "Your <span>Hustle</span>, supercharged with AI",
-    description: "We've built the mobile business tool we always wanted - mobile-first, smart, simple, and actually fun to use. Let AI handle the boring stuff while you focus on growing your Hustle."
+    title: "Your <span>Business</span>, supercharged with AI",
+    description: "We've built the mobile business tool we always wanted - mobile-first, smart, simple, and actually fun to use. Let AI handle the boring stuff while you focus on growing your business."
   },
   {
     title: "Small Business, <span>Big</span> Possibilities",
@@ -95,18 +95,9 @@ export function DynamicHero() {
             <div className="flex flex-wrap gap-4">
               <Button
                 size="lg"
-                className="rounded-full bg-primary text-white hover:bg-primary/90"
                 onClick={() => window.location.href = 'mailto:info@tilla.app?subject=Tilla%20Inquiry'}
               >
                 Contact Us <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="rounded-full border-gray-700 text-gray-300 hover:bg-gray-800 hover:text-white"
-                onClick={() => window.location.href = 'https://forms.gle/BSTDaS3WKft7vsjB6'}
-              >
-                Get Early Access
               </Button>
             </div>
           </FadeIn>

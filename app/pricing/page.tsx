@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Navbar } from "@/components/navbar"
@@ -9,16 +9,57 @@ import { FadeIn } from "@/components/fade-in"
 import { PricingCard } from "@/components/pricing-card"
 import { FloatingElements } from "@/components/floating-elements"
 import { ElegantShapesBackground } from "@/components/elegant-shapes"
+import { ContactDialog } from "@/components/contact-dialog"
+import { pricingService } from "@/lib/pricing-service"
+
+interface PricingPlan {
+  id: string
+  tier: string
+  title: string
+  price: number
+  description: string
+  features: string[]
+  is_active: boolean
+}
 
 export default function PricingPage() {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly")
+  const [isContactDialogOpen, setIsContactDialogOpen] = useState(false)
+  const [supabasePricingPlans, setSupabasePricingPlans] = useState<PricingPlan[]>([])
+  const [comparisonFeatures, setComparisonFeatures] = useState<Record<string, any[]>>({})
 
-  const pricingPlans = {
+  useEffect(() => {
+    // Fetch pricing data from Supabase
+    const fetchPricing = async () => {
+      try {
+        const plans = await pricingService.getBasePricing()
+        // Filter to only get one plan per tier (remove duplicates)
+        const uniquePlans = plans.reduce((acc, plan) => {
+          const existing = acc.find(p => p.tier === plan.tier)
+          if (!existing) {
+            acc.push(plan)
+          }
+          return acc
+        }, [] as typeof plans)
+        setSupabasePricingPlans(uniquePlans)
+
+        // Fetch features grouped by category for comparison table
+        const groupedFeatures = await pricingService.getFeaturesGroupedByCategory()
+        setComparisonFeatures(groupedFeatures)
+      } catch (error) {
+        console.error("Error fetching pricing plans:", error)
+      }
+    }
+
+    fetchPricing()
+  }, [])
+
+  const defaultPricingPlans = {
     monthly: [
       {
         title: "Free",
         price: "$0",
-        description: "For individuals and micro-businesses just starting out",
+        description: "Perfect for testing the waters",
         features: [
           "Basic inventory management",
           "Up to 50 products",
@@ -33,7 +74,7 @@ export default function PricingPage() {
       {
         title: "Starter",
         price: "$12",
-        description: "For small businesses ready to grow",
+        description: "When you're ready to scale",
         features: [
           "Everything in Free",
           "Up to 500 products",
@@ -49,7 +90,7 @@ export default function PricingPage() {
       {
         title: "Growth",
         price: "$29",
-        description: "For growing businesses with advanced needs",
+        description: "For businesses that are thriving",
         features: [
           "Everything in Starter",
           "Up to 2,000 products",
@@ -65,7 +106,7 @@ export default function PricingPage() {
       {
         title: "Enterprise",
         price: "$79",
-        description: "For established businesses with multiple locations",
+        description: "For ambitious businesses",
         features: [
           "Everything in Growth",
           "Unlimited products",
@@ -161,10 +202,10 @@ export default function PricingPage() {
           <div className="mx-auto max-w-3xl text-center relative z-10">
             <FadeIn>
               <h1 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-                Simple pricing for your <span className="text-primary">Hustle</span>
+                Simple pricing for your <span className="text-primary">business</span>
               </h1>
               <p className="mb-8 text-lg text-gray-300">
-                No hidden fees, no surprises. Just straightforward pricing that makes sense for small businesses.
+                Transparent pricing that grows with your business. Start free, upgrade when you're ready.
               </p>
             </FadeIn>
 
@@ -197,43 +238,44 @@ export default function PricingPage() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {pricingPlans[billingCycle].map((plan, index) => (
-              <PricingCard
-                key={plan.title}
-                title={plan.title}
-                price={plan.price}
-                description={plan.description}
-                features={plan.features}
-                buttonText={plan.buttonText}
-                popular={plan.popular}
-                delay={index * 0.1}
-              />
-            ))}
-          </div>
+      {supabasePricingPlans.length > 0 && (
+        <section className="py-16">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {supabasePricingPlans.map((plan, index) => (
+                <PricingCard
+                  key={plan.id}
+                  title={plan.display_name}
+                  price={plan.tier === "enterprise" ? "Custom" : `$${plan.base_monthly_price || 0}`}
+                  description={plan.description}
+                  features={plan.features}
+                  buttonText={plan.tier === "enterprise" ? "Contact Us" : "Get Started"}
+                  popular={plan.tier === "growth"}
+                  delay={index * 0.1}
+                />
+              ))}
+            </div>
 
-          <div className="mt-16">
-            <FadeIn delay={0.4}>
-              <div className="mx-auto max-w-3xl rounded-2xl bg-gray-800 p-8 shadow-sm">
-                <div className="flex flex-col items-center gap-4 sm:flex-row">
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-white">Need something custom?</h3>
-                    <p className="mt-2 text-gray-300">
-                      Let's chat about what you need. We're flexible and love helping businesses find the right solution
-                      for their Hustle.
-                    </p>
+            <div className="mt-16">
+              <FadeIn delay={0.4}>
+                <div className="mx-auto max-w-3xl rounded-2xl bg-gray-800 p-8 shadow-sm">
+                  <div className="flex flex-col items-center gap-4 sm:flex-row">
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold text-white">Need a custom plan?</h3>
+                      <p className="mt-2 text-gray-300">
+                        Have unique requirements? Let's build something that fits your business perfectly. Our team is here to help.
+                      </p>
+                    </div>
+                    <Button size="lg" onClick={() => setIsContactDialogOpen(true)}>
+                      Get in touch
+                    </Button>
                   </div>
-                  <Button size="lg" className="rounded-full bg-primary text-white hover:bg-primary/90">
-                    Contact Us
-                  </Button>
                 </div>
-              </div>
-            </FadeIn>
+              </FadeIn>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Feature Comparison */}
       <section className="bg-gray-900 py-24">
@@ -251,86 +293,71 @@ export default function PricingPage() {
 
           <div className="mt-16 overflow-hidden rounded-xl border border-gray-800">
             <div className="overflow-x-auto">
-              <table className="w-full min-w-[800px] border-collapse text-left">
+              <table className="w-full min-w-[900px] border-collapse text-left">
                 <thead>
                   <tr className="border-b border-gray-800 bg-gray-800/50">
                     <th className="px-6 py-4 text-sm font-semibold text-white">Features</th>
-                    <th className="px-6 py-4 text-sm font-semibold text-white">Free</th>
-                    <th className="px-6 py-4 text-sm font-semibold text-white">Starter</th>
-                    <th className="px-6 py-4 text-sm font-semibold text-white">Growth</th>
-                    <th className="px-6 py-4 text-sm font-semibold text-white">Enterprise</th>
+                    <th className="px-6 py-4 text-sm font-semibold text-white text-center">Free</th>
+                    <th className="px-6 py-4 text-sm font-semibold text-white text-center">Starter</th>
+                    <th className="px-6 py-4 text-sm font-semibold text-white text-center">Growth</th>
+                    <th className="px-6 py-4 text-sm font-semibold text-white text-center">Enterprise</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {[
-                    { name: "Products", free: "50", starter: "500", growth: "2,000", enterprise: "Unlimited" },
-                    { name: "User accounts", free: "1", starter: "2", growth: "5", enterprise: "10+" },
-                    { name: "Sales transactions", free: "Unlimited", starter: "Unlimited", growth: "Unlimited", enterprise: "Unlimited" },
-                    { name: "Basic inventory", free: true, starter: true, growth: true, enterprise: true },
-                    { name: "Offline mode", free: true, starter: true, growth: true, enterprise: true },
-                    { name: "Mobile app", free: true, starter: true, growth: true, enterprise: true },
-                    { name: "Customer database", free: false, starter: true, growth: true, enterprise: true },
-                    { name: "Credit sales", free: false, starter: true, growth: true, enterprise: true },
-                    { name: "Basic reports", free: false, starter: true, growth: true, enterprise: true },
-                    { name: "Advanced inventory", free: false, starter: false, growth: true, enterprise: true },
-                    { name: "Sales analytics", free: false, starter: false, growth: true, enterprise: true },
-                    { name: "Multi-branch support", free: false, starter: false, growth: "2 locations", enterprise: "Unlimited" },
-                    { name: "AI product creation", free: false, starter: false, growth: false, enterprise: true },
-                    { name: "AI insights", free: false, starter: false, growth: false, enterprise: true },
-                    { name: "Advanced analytics", free: false, starter: false, growth: false, enterprise: true },
-                    { name: "Custom integrations", free: false, starter: false, growth: false, enterprise: true },
-                    { name: "Dedicated account manager", free: false, starter: false, growth: false, enterprise: true },
-                  ].map((feature, index) => (
-                    <tr
-                      key={feature.name}
-                      className={`border-b border-gray-800 ${index % 2 === 0 ? "bg-gray-900" : "bg-gray-900/50"}`}
-                    >
-                      <td className="px-6 py-4 text-sm font-medium text-white">{feature.name}</td>
-                      <td className="px-6 py-4 text-sm text-gray-300">
-                        {typeof feature.free === "boolean" ? (
-                          feature.free ? (
-                            <Check className="h-5 w-5 text-green-500" />
-                          ) : (
-                            <span className="text-gray-500">—</span>
-                          )
-                        ) : (
-                          feature.free
-                        )}
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-300">
-                        {typeof feature.starter === "boolean" ? (
-                          feature.starter ? (
-                            <Check className="h-5 w-5 text-green-500" />
-                          ) : (
-                            <span className="text-gray-500">—</span>
-                          )
-                        ) : (
-                          feature.starter
-                        )}
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-300">
-                        {typeof feature.growth === "boolean" ? (
-                          feature.growth ? (
-                            <Check className="h-5 w-5 text-green-500" />
-                          ) : (
-                            <span className="text-gray-500">—</span>
-                          )
-                        ) : (
-                          feature.growth
-                        )}
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-300">
-                        {typeof feature.enterprise === "boolean" ? (
-                          feature.enterprise ? (
-                            <Check className="h-5 w-5 text-green-500" />
-                          ) : (
-                            <span className="text-gray-500">—</span>
-                          )
-                        ) : (
-                          feature.enterprise
-                        )}
-                      </td>
-                    </tr>
+                  {Object.entries(comparisonFeatures).map(([category, features]) => (
+                    <React.Fragment key={category}>
+                      {/* Category Header */}
+                      <tr className="border-b border-gray-700 bg-gray-800/30">
+                        <td colSpan={5} className="px-6 py-3 text-sm font-bold text-primary">
+                          {category}
+                        </td>
+                      </tr>
+                      {/* Features in this category */}
+                      {features.map((feature, index) => (
+                        <tr
+                          key={feature.feature_name}
+                          className={`border-b border-gray-800 ${index % 2 === 0 ? "bg-gray-900" : "bg-gray-900/50"}`}
+                        >
+                          <td className="px-6 py-4 text-sm font-medium text-white">{feature.feature_name}</td>
+                          <td className="px-6 py-4 text-sm text-gray-300 text-center">
+                            {feature.free_value === '—' ? (
+                              <span className="text-gray-500">—</span>
+                            ) : feature.free_value === '✓' ? (
+                              <Check className="h-5 w-5 text-green-500 mx-auto" />
+                            ) : (
+                              <span>{feature.free_value}</span>
+                            )}
+                          </td>
+                          <td className="px-6 py-4 text-sm text-gray-300 text-center">
+                            {feature.starter_value === '—' ? (
+                              <span className="text-gray-500">—</span>
+                            ) : feature.starter_value === '✓' ? (
+                              <Check className="h-5 w-5 text-green-500 mx-auto" />
+                            ) : (
+                              <span>{feature.starter_value}</span>
+                            )}
+                          </td>
+                          <td className="px-6 py-4 text-sm text-gray-300 text-center">
+                            {feature.growth_value === '—' ? (
+                              <span className="text-gray-500">—</span>
+                            ) : feature.growth_value === '✓' ? (
+                              <Check className="h-5 w-5 text-green-500 mx-auto" />
+                            ) : (
+                              <span>{feature.growth_value}</span>
+                            )}
+                          </td>
+                          <td className="px-6 py-4 text-sm text-gray-300 text-center">
+                            {feature.enterprise_value === '—' ? (
+                              <span className="text-gray-500">—</span>
+                            ) : feature.enterprise_value === '✓' ? (
+                              <Check className="h-5 w-5 text-green-500 mx-auto" />
+                            ) : (
+                              <span>{feature.enterprise_value}</span>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </React.Fragment>
                   ))}
                 </tbody>
               </table>
@@ -375,9 +402,9 @@ export default function PricingPage() {
 
             <FadeIn delay={0.3}>
               <div>
-                <h3 className="text-xl font-semibold text-white">Is the Free tier really free forever?</h3>
+                <h3 className="text-xl font-semibold text-white">Is the Free plan really free forever?</h3>
                 <p className="mt-2 text-gray-300">
-                  Yes! Our Free tier is completely free with no time limits. You can use it for as long as you want with the included features. Upgrade to a paid plan when you need more advanced features.
+                  Yes! Our Free plan is completely free with no time limits. You can use it for as long as you want with the included features. Upgrade to a paid plan when you need more advanced features.
                 </p>
               </div>
             </FadeIn>
@@ -393,6 +420,11 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
+
+      <ContactDialog
+        isOpen={isContactDialogOpen}
+        onClose={() => setIsContactDialogOpen(false)}
+      />
 
       <Footer />
     </div>

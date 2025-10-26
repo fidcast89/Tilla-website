@@ -1,17 +1,20 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
 import { CheckCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ContactDialog } from "@/components/contact-dialog"
 
 interface PricingCardProps {
   title: string
   price: string
   description: string
   features: string[]
-  buttonText: string
+  buttonText?: string
   popular?: boolean
   delay?: number
+  onGetStarted?: () => void
 }
 
 export function PricingCard({
@@ -19,10 +22,17 @@ export function PricingCard({
   price,
   description,
   features,
-  buttonText,
+  buttonText = "Get Started",
   popular = false,
   delay = 0,
+  onGetStarted,
 }: PricingCardProps) {
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+
+  const handleGetStarted = () => {
+    setIsDialogOpen(true)
+    onGetStarted?.()
+  }
   return (
     <motion.div
       initial={{ y: 20, opacity: 0 }}
@@ -32,7 +42,7 @@ export function PricingCard({
       whileHover={{ y: -5 }}
       className={`relative overflow-hidden rounded-2xl ${
         popular ? "bg-primary text-white" : "bg-gray-800 text-white"
-      } p-8 shadow-sm transition-shadow hover:shadow-md`}
+      } p-8 shadow-sm transition-shadow hover:shadow-md flex flex-col h-full`}
     >
       {popular && (
         <div className="absolute -right-12 top-7 rotate-45 bg-white px-12 py-1 text-sm font-medium text-primary">
@@ -40,30 +50,40 @@ export function PricingCard({
         </div>
       )}
 
-      <h3 className="mb-2 text-2xl font-bold">{title}</h3>
-      <div className="mb-4">
-        <span className="text-3xl font-bold">{price}</span>
-        <span className={`text-sm ${popular ? "text-white/70" : "text-gray-400"}`}>/month</span>
-      </div>
-      <p className={`mb-6 ${popular ? "text-white/70" : "text-gray-300"}`}>{description}</p>
+      <div className="flex-1">
+        <h3 className="mb-2 text-2xl font-bold">{title}</h3>
+        <div className="mb-4">
+          <span className="text-3xl font-bold">{price}</span>
+          <span className={`text-sm ${popular ? "text-white/70" : "text-gray-400"}`}>/month</span>
+        </div>
+        <p className={`mb-6 ${popular ? "text-white/70" : "text-gray-300"}`}>{description}</p>
 
-      <ul className="mb-8 space-y-3">
-        {features.map((feature, i) => (
-          <li key={i} className="flex items-start gap-2">
-            <CheckCircle2 className={`h-5 w-5 shrink-0 ${popular ? "text-white" : "text-primary"}`} />
-            <span className={popular ? "text-white/90" : "text-gray-300"}>{feature}</span>
-          </li>
-        ))}
-      </ul>
+        <ul className="space-y-3">
+          {features.map((feature, i) => (
+            <li key={i} className="flex items-start gap-2">
+              <CheckCircle2 className={`h-5 w-5 shrink-0 ${popular ? "text-white" : "text-primary"}`} />
+              <span className={popular ? "text-white/90" : "text-gray-300"}>{feature}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
 
       <Button
         size="lg"
-        className={`w-full ${
+        onClick={handleGetStarted}
+        className={`w-full mt-8 ${
           popular ? "bg-white text-primary hover:bg-white/90" : "bg-primary text-white hover:bg-primary/90"
         }`}
       >
         {buttonText}
       </Button>
+
+      <ContactDialog
+        isOpen={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)}
+        planName={title}
+        planPrice={price}
+      />
     </motion.div>
   )
 }

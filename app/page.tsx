@@ -16,13 +16,50 @@ import { FloatingElements } from "@/components/floating-elements"
 import { ElegantShapesBackground } from "@/components/elegant-shapes"
 import { HowItWorksMockup } from "@/components/feature-mockups/how-it-works-mockup"
 import { DynamicHero } from "@/components/dynamic-hero"
+import { PlayStoreDownload } from "@/components/play-store-download"
+import { ContactDialog } from "@/components/contact-dialog"
+import { pricingService } from "@/lib/pricing-service"
+
+interface PricingPlan {
+  id: string
+  tier: string
+  title: string
+  price: number
+  description: string
+  features: string[]
+  is_active: boolean
+}
 
 export default function Home() {
   const { scrollYProgress } = useScroll()
   const [isClient, setIsClient] = useState(false)
+  const [isContactDialogOpen, setIsContactDialogOpen] = useState(false)
+  const [pricingPlans, setPricingPlans] = useState<PricingPlan[]>([])
 
   useEffect(() => {
     setIsClient(true)
+
+    // Fetch pricing data from Supabase
+    const fetchPricing = async () => {
+      try {
+        const plans = await pricingService.getBasePricing()
+        // Filter to only get one plan per tier (remove duplicates)
+        const uniquePlans = plans.reduce((acc, plan) => {
+          const existing = acc.find(p => p.tier === plan.tier)
+          if (!existing) {
+            acc.push(plan)
+          }
+          return acc
+        }, [] as typeof plans)
+        setPricingPlans(uniquePlans)
+      } catch (error) {
+        console.error("Error fetching pricing plans:", error)
+        // Fallback to default pricing if fetch fails
+        setPricingPlans([])
+      }
+    }
+
+    fetchPricing()
   }, [])
 
   const phoneRotation = useTransform(scrollYProgress, [0, 0.1], [0, 5])
@@ -33,7 +70,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section - With geometric background */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-gray-900 to-gray-950 pt-20 pb-32">
+      <section className="relative overflow-visible bg-gradient-to-b from-gray-900 to-gray-950 pt-20 pb-32">
         <ElegantShapesBackground />
         <FloatingElements />
 
@@ -74,14 +111,13 @@ export default function Home() {
           <div className="mx-auto max-w-3xl text-center">
             <FadeIn>
               <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary">
-                AI Superpowers
+                Smart Features
               </span>
               <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Let AI do the heavy lifting
+                AI that actually helps your business
               </h2>
               <p className="text-lg text-gray-300">
-                We've packed Tilla with AI features that actually make your life easier. No gimmicks, just practical
-                magic.
+                Tilla uses AI to handle the tedious work, so you can focus on what matters - growing your business.
               </p>
             </FadeIn>
           </div>
@@ -103,15 +139,15 @@ export default function Home() {
             />
             <FeatureCard
               icon={<MessageSquare className="h-6 w-6 text-primary" />}
-              title="AI Sales Assistant"
-              description="Get product recommendations, answer customer questions, and close more sales with your AI sidekick."
+              title="Competition Analysis"
+              description="Understand your market better. See what competitors are doing and find opportunities to stand out."
               delay={0.3}
               hoverEffect="scale"
             />
             <FeatureCard
               icon={<Share2 className="h-6 w-6 text-primary" />}
-              title="Social Media Magic"
-              description="Turn inventory into Instagram-ready posts with AI-generated captions and hashtags that actually work."
+              title="Social Media Content"
+              description="Create engaging posts from your inventory. AI helps you share products on social media effortlessly."
               delay={0.4}
               hoverEffect="scale"
             />
@@ -124,8 +160,8 @@ export default function Home() {
             />
             <FeatureCard
               icon={<CreditCard className="h-6 w-6 text-primary" />}
-              title="Smart Credit Management"
-              description="AI helps you decide which customers are good candidates for credit and reminds them to pay (so you don't have to)."
+              title="Credit Sales Made Easy"
+              description="Manage customer credit seamlessly. Track who owes you what and get automatic payment reminders."
               delay={0.6}
               hoverEffect="scale"
             />
@@ -279,7 +315,7 @@ export default function Home() {
                 Pricing
               </span>
               <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Simple pricing that grows with your Hustle
+                Simple pricing that grows with your business
               </h2>
               <p className="text-lg text-gray-300">
                 No hidden fees, no surprises. Just straightforward pricing that makes sense for small businesses.
@@ -287,68 +323,22 @@ export default function Home() {
             </FadeIn>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <PricingCard
-              title="Free"
-              price="$0"
-              description="For individuals and micro-businesses just starting out"
-              features={[
-                "Basic inventory management",
-                "Up to 50 products",
-                "1 user account",
-                "Basic sales tracking",
-                "Offline functionality",
-              ]}
-              buttonText="Get Started"
-              popular={false}
-              delay={0.1}
-            />
-            <PricingCard
-              title="Starter"
-              price="$12"
-              description="For small businesses ready to grow"
-              features={[
-                "Up to 500 products",
-                "2 user accounts",
-                "Customer database",
-                "Credit sales tracking",
-                "Basic reports",
-              ]}
-              buttonText="Get Started"
-              popular={false}
-              delay={0.2}
-            />
-            <PricingCard
-              title="Growth"
-              price="$29"
-              description="For growing businesses with advanced needs"
-              features={[
-                "Up to 2,000 products",
-                "5 user accounts",
-                "Advanced inventory",
-                "Sales analytics",
-                "Multi-branch (2 locations)",
-              ]}
-              buttonText="Get Started"
-              popular={true}
-              delay={0.3}
-            />
-            <PricingCard
-              title="Enterprise"
-              price="$79"
-              description="For established businesses with multiple locations"
-              features={[
-                "Unlimited products",
-                "10+ user accounts",
-                "AI-powered features",
-                "Advanced analytics",
-                "Unlimited locations",
-              ]}
-              buttonText="Contact Sales"
-              popular={false}
-              delay={0.4}
-            />
-          </div>
+          {pricingPlans.length > 0 ? (
+            <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {pricingPlans.map((plan, index) => (
+                <PricingCard
+                  key={plan.id}
+                  title={plan.display_name}
+                  price={plan.tier === "enterprise" ? "Custom" : `$${plan.base_monthly_price || 0}`}
+                  description={plan.description}
+                  features={plan.features}
+                  buttonText={plan.tier === "enterprise" ? "Contact Us" : "Get Started"}
+                  popular={plan.tier === "growth"}
+                  delay={index * 0.1}
+                />
+              ))}
+            </div>
+          ) : null}
 
           <div className="mt-16">
             <FadeIn delay={0.4}>
@@ -358,10 +348,10 @@ export default function Home() {
                     <h3 className="text-xl font-semibold text-white">Need something custom?</h3>
                     <p className="mt-2 text-gray-300">
                       Let's chat about what you need. We're flexible and love helping businesses find the right solution
-                      for their Hustle.
+                      for their business.
                     </p>
                   </div>
-                  <Button size="lg" className="rounded-full bg-primary text-white hover:bg-primary/90">
+                  <Button size="lg" className="bg-primary text-white hover:bg-primary/90">
                     Contact Us
                   </Button>
                 </div>
@@ -377,7 +367,7 @@ export default function Home() {
           <div className="mx-auto max-w-4xl text-center">
             <FadeIn>
               <h2 className="mb-6 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Ready to supercharge your Hustle?
+                Ready to transform your business?
               </h2>
               <p className="mb-8 text-lg text-white/80">
                 Join our growing community of smart retailers who are using AI to work smarter, not harder.
@@ -385,18 +375,10 @@ export default function Home() {
               <div className="flex flex-wrap justify-center gap-4">
                 <Button
                   size="lg"
-                  className="rounded-full bg-white text-primary hover:bg-white/90"
-                  onClick={() => window.location.href = 'mailto:info@tilla.app?subject=Tilla%20Inquiry'}
+                  className="bg-white text-primary hover:bg-white/90"
+                  onClick={() => setIsContactDialogOpen(true)}
                 >
                   Contact Us <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="rounded-full border-white text-white hover:bg-white/10"
-                  onClick={() => window.location.href = 'mailto:info@tilla.app?subject=Tilla%20Demo%20Request'}
-                >
-                  See a demo
                 </Button>
               </div>
             </FadeIn>
@@ -514,12 +496,12 @@ export default function Home() {
                   Ready to transform your business?
                 </h2>
                 <p className="mb-8 text-lg text-white/80">
-                  Get in touch to see how AI can transform your Hustle.
+                  Get in touch to see how AI can transform your business.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
                   <Button
                     size="lg"
-                    className="rounded-full bg-white text-primary hover:bg-white/90"
+                    className="bg-white text-primary hover:bg-white/90"
                     onClick={() => window.location.href = 'mailto:info@tilla.app?subject=Tilla%20Inquiry'}
                   >
                     Contact Us <ArrowRight className="ml-2 h-4 w-4" />
@@ -527,18 +509,12 @@ export default function Home() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="rounded-full border-white text-white hover:bg-white/10"
-                    onClick={() => window.location.href = 'mailto:info@tilla.app?subject=Tilla%20Demo%20Request'}
+                    className="border-white text-white hover:bg-white/10"
+                    onClick={() => setIsContactDialogOpen(true)}
                   >
                     Schedule a demo
                   </Button>
-                  <Button
-                    size="lg"
-                    className="rounded-full bg-black text-white hover:bg-black/90"
-                    onClick={() => window.location.href = 'https://forms.gle/BSTDaS3WKft7vsjB6'}
-                  >
-                    Get Early Access
-                  </Button>
+
                 </div>
                 <p className="mt-6 text-sm text-white/70">
                   By signing up, you agree to our{" "}
@@ -556,6 +532,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Play Store Download Section */}
+      <PlayStoreDownload />
+
+      <ContactDialog
+        isOpen={isContactDialogOpen}
+        onClose={() => setIsContactDialogOpen(false)}
+      />
 
       <Footer />
     </div>

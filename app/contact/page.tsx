@@ -1,19 +1,92 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { FadeIn } from "@/components/fade-in"
 import { FloatingElements } from "@/components/floating-elements"
 import { ElegantShapesBackground } from "@/components/elegant-shapes"
-import { Mail, Phone, MapPin, Send, MessageSquare, PhoneIcon as WhatsApp } from "lucide-react"
+import { Mail, Phone, MapPin, Send, MessageSquare, PhoneIcon as WhatsApp, CheckCircle, AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { contactService } from "@/lib/contact-service"
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    subject: "demo",
+    message: "",
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<{ type: "success" | "error"; message: string } | null>(null)
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [id]: value,
+    }))
+  }
+
+  const handleSubjectChange = (value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      subject: value,
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+
+    try {
+      const result = await contactService.submitContactForm({
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        subject: formData.subject,
+        message: formData.message,
+      })
+
+      if (result.success) {
+        setSubmitStatus({
+          type: "success",
+          message: "Thank you! Your message has been sent successfully. We'll get back to you soon.",
+        })
+        // Reset form
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          subject: "demo",
+          message: "",
+        })
+      } else {
+        setSubmitStatus({
+          type: "error",
+          message: result.error || "Failed to send message. Please try again.",
+        })
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message: "An unexpected error occurred. Please try again.",
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gray-950 text-gray-100">
       <Navbar />
@@ -29,7 +102,7 @@ export default function ContactPage() {
                 Contact Us
               </span>
               <h1 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-                Let's talk about your <span className="text-primary">Hustle</span>
+                Let's talk about your <span className="text-primary">business</span>
               </h1>
               <p className="text-lg text-gray-300">
                 Have questions? Want to see a demo? Our team is here to help you find the right solution for your
@@ -116,26 +189,47 @@ export default function ContactPage() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="rounded-xl border border-gray-800 bg-gray-900 p-8 shadow-lg"
               >
-                <form>
+                <form onSubmit={handleSubmit}>
+                  {submitStatus && (
+                    <div className={`mb-6 flex items-start gap-3 rounded-lg p-4 ${
+                      submitStatus.type === "success"
+                        ? "bg-green-500/10 text-green-400"
+                        : "bg-red-500/10 text-red-400"
+                    }`}>
+                      {submitStatus.type === "success" ? (
+                        <CheckCircle className="h-5 w-5 shrink-0 mt-0.5" />
+                      ) : (
+                        <AlertCircle className="h-5 w-5 shrink-0 mt-0.5" />
+                      )}
+                      <p className="text-sm">{submitStatus.message}</p>
+                    </div>
+                  )}
+
                   <div className="mb-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div>
-                      <Label htmlFor="first-name" className="text-gray-300">
+                      <Label htmlFor="firstName" className="text-gray-300">
                         First name
                       </Label>
                       <Input
-                        id="first-name"
+                        id="firstName"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
                         className="mt-1 border-gray-700 bg-gray-800 text-white placeholder-gray-400 focus:border-primary"
                         placeholder="John"
+                        required
                       />
                     </div>
                     <div>
-                      <Label htmlFor="last-name" className="text-gray-300">
+                      <Label htmlFor="lastName" className="text-gray-300">
                         Last name
                       </Label>
                       <Input
-                        id="last-name"
+                        id="lastName"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
                         className="mt-1 border-gray-700 bg-gray-800 text-white placeholder-gray-400 focus:border-primary"
                         placeholder="Doe"
+                        required
                       />
                     </div>
                   </div>
@@ -147,8 +241,11 @@ export default function ContactPage() {
                     <Input
                       id="email"
                       type="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       className="mt-1 border-gray-700 bg-gray-800 text-white placeholder-gray-400 focus:border-primary"
                       placeholder="john@example.com"
+                      required
                     />
                   </div>
 
@@ -159,14 +256,17 @@ export default function ContactPage() {
                     <Input
                       id="phone"
                       type="tel"
+                      value={formData.phone}
+                      onChange={handleInputChange}
                       className="mt-1 border-gray-700 bg-gray-800 text-white placeholder-gray-400 focus:border-primary"
                       placeholder="+254700123456"
+                      required
                     />
                   </div>
 
                   <div className="mb-6">
                     <Label className="text-gray-300">What are you interested in?</Label>
-                    <RadioGroup defaultValue="demo" className="mt-2">
+                    <RadioGroup value={formData.subject} onValueChange={handleSubjectChange} className="mt-2">
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem id="demo" value="demo" className="border-gray-600 text-primary" />
                         <Label htmlFor="demo" className="text-gray-300">
@@ -201,13 +301,16 @@ export default function ContactPage() {
                     <Textarea
                       id="message"
                       rows={4}
+                      value={formData.message}
+                      onChange={handleInputChange}
                       className="mt-1 border-gray-700 bg-gray-800 text-white placeholder-gray-400 focus:border-primary"
                       placeholder="Tell us about your business and how we can help..."
+                      required
                     />
                   </div>
 
-                  <Button type="submit" className="w-full bg-primary text-white hover:bg-primary/90">
-                    Send Message <Send className="ml-2 h-4 w-4" />
+                  <Button type="submit" disabled={isSubmitting} className="w-full">
+                    {isSubmitting ? "Sending..." : "Send Message"} <Send className="ml-2 h-4 w-4" />
                   </Button>
                 </form>
               </motion.div>

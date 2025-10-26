@@ -9,11 +9,11 @@ export function Footer() {
           <div>
             <Link href="/" className="flex items-center">
               <span className="text-xl font-bold text-white">
-                <span className="text-primary">i</span>Hustle
+                Tilla
               </span>
             </Link>
             <p className="mt-4 text-sm text-gray-400">
-              The AI-powered business tool built for small businesses that want to work smarter, not harder.
+              The AI-powered POS and eCommerce platform built for small businesses that want to work smarter, not harder.
             </p>
             <div className="mt-6 flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white">
