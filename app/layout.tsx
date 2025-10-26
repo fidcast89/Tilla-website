@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Tilla App - Free Smart POS & Business App for Retailers",
   description:
     "Tilla is not just a POS - it's your all-in-one smart business app. Sell, track stock, take payments, and post products online from any device. Simple, free, and built for modern retailers.",
-  keywords: "POS app Kenya, shop management app Kenya, POS app Rwanda, free POS app, business app Africa, inventory tracking app, mobile POS Kenya, inventory & sales tracking Africa, all in one business app Kenya",
+  keywords: "Tilla POS, Tilla app, Till POS, Till app, POS app Kenya, shop management app Kenya, POS app Rwanda, free POS app, business app Africa, inventory tracking app, mobile POS Kenya, inventory & sales tracking Africa, all in one business app Kenya",
   metadataBase: new URL("https://www.tillapos.com"),
   generator: "v0.dev",
   openGraph: {
