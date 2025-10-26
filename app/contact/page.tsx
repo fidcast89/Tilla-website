@@ -7,7 +7,7 @@ import { Footer } from "@/components/footer"
 import { FadeIn } from "@/components/fade-in"
 import { FloatingElements } from "@/components/floating-elements"
 import { ElegantShapesBackground } from "@/components/elegant-shapes"
-import { Mail, Phone, MapPin, Send, MessageSquare, PhoneIcon as WhatsApp, CheckCircle, AlertCircle } from "lucide-react"
+import { Mail, Send, CheckCircle, AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -136,45 +136,6 @@ export default function ContactPage() {
                         <a href="mailto:info@tilla.app" className="hover:text-primary">
                           info@tilla.app
                         </a>
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                      <Phone className="h-5 w-5 text-primary" />
-                    </div>
-                    <div className="ml-4">
-                      <h3 className="text-lg font-medium text-white">Phone</h3>
-                      <p className="mt-1 text-gray-300">
-                        <a href="tel:+254720024670" className="hover:text-primary">
-                          +254 720 024 670
-                        </a>
-                      </p>
-                      <a
-                        href="https://wa.me/254720024670"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-2 inline-flex items-center gap-2 rounded-full bg-green-600/20 px-3 py-1 text-sm text-green-400 hover:bg-green-600/30 transition-colors"
-                      >
-                        <WhatsApp className="h-4 w-4" />
-                        <span>Chat on WhatsApp</span>
-                      </a>
-                    </div>
-                  </div>
-
-
-
-                  <div className="flex items-start">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                      <MessageSquare className="h-5 w-5 text-primary" />
-                    </div>
-                    <div className="ml-4">
-                      <h3 className="text-lg font-medium text-white">Live Chat</h3>
-                      <p className="mt-1 text-gray-300">
-                        Available Monday-Friday
-                        <br />
-                        9:00 AM - 5:00 PM EAT
                       </p>
                     </div>
                   </div>
